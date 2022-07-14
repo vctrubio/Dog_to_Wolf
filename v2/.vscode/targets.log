@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Thu Jul 14 16:06:59 2022
+# Make data base, printed on Thu Jul 14 18:38:00 2022
 
 # Variables
 
@@ -32,7 +32,7 @@ rvm_path = /Users/V/.rvm
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/V/Documents/42/summer22/cube_versions/v1
+CURDIR := /Users/V/Documents/42/summer22/cube_versions/v2
 # makefile
 SHELL = /bin/sh
 # makefile (from `Makefile', line 4)
@@ -54,12 +54,11 @@ rvm_ruby_make =
 # makefile (from `Makefile', line 3)
 OBJS = $(SRCS:.c=.o)
 # environment
-VSCODE_CWD = /Users/V/Documents/42/summer22/cube_versions/v1
+VSCODE_CWD = /Users/V/Documents/42/summer22/cube_versions
 # environment
 Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.W8udmwD4dd/Render
 # environment
 rvm_pretty_print_flag = 
- 
 # environment
 PATH = /Users/V/.rvm/gems/ruby-2.5.3/bin:/Users/V/.rvm/gems/ruby-2.5.3@global/bin:/Users/V/.rvm/rubies/ruby-2.5.3/bin:/usr/local/opt/openssl@1.1/bin:./bin:./node_modules/.bin:/Users/V/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/V/.zsh/misc:/Users/V/.fig/bin:/usr/local/sbin:/Users/V/.rvm/bin
 # environment
@@ -89,7 +88,7 @@ FIG_ENV_VAR = 1
 # environment
 rvm_bin_path = /Users/V/.rvm/bin
 # environment
-PWD = /Users/V/Documents/42/summer22/cube_versions/v1
+PWD = /Users/V/Documents/42/summer22/cube_versions/v2
 # environment
 GEM_HOME = /Users/V/.rvm/gems/ruby-2.5.3
 # environment
@@ -233,8 +232,8 @@ rvm_nightly_flag =
 
 # Directories
 
-# . (device 16777220, inode 8635716303): 13 files, no impossibilities.
-# ./srcs (device 16777220, inode 8635716353): 12 files, no impossibilities.
+# . (device 16777220, inode 8635733160): 13 files, no impossibilities.
+# ./srcs (device 16777220, inode 8635733210): 12 files, no impossibilities.
 
 # 25 files, no impossibilities in 2 directories.
 
@@ -328,6 +327,6 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Jul 14 16:06:59 2022
+# Finished Make data base on Thu Jul 14 18:38:00 2022
 
  

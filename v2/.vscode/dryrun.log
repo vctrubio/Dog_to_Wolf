@@ -1,5 +1,5 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/V/Documents/42/summer22/cube_versions/v1'
-gcc ./srcs/calloc.c ./srcs/inits.c ./srcs/keys.c ./srcs/main.c ./srcs/map.c ./srcs/parser.c ./srcs/static.c ./srcs/util_gnl.c ./srcs/util_list.c ./srcs/util_str.c lmlx/libmlx.a -framework OpenGL -framework AppKit -o cube
-make: Leaving directory `/Users/V/Documents/42/summer22/cube_versions/v1'
+make: Entering directory `/Users/V/Documents/42/summer22/cube_versions/v2'
+gcc ./srcs/calloc.c ./srcs/draw.c ./srcs/keys.c ./srcs/main.c ./srcs/pixel_manipulation.c ./srcs/static.c ./srcs/static_rtn.c ./srcs/util_gnl.c ./srcs/util_list.c ./srcs/util_str.c lmlx/libmlx.a -framework OpenGL -framework AppKit -o cube
+make: Leaving directory `/Users/V/Documents/42/summer22/cube_versions/v2'
  

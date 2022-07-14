@@ -42,6 +42,8 @@ typedef struct	s_img
 	int			bbp;
 	int			height;
 	int			width;
+	double		pos_x;
+	double		pos_y;
 }				t_img;
 
 typedef struct	s_game
