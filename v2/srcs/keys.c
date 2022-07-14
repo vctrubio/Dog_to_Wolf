@@ -7,9 +7,13 @@ static int	ft_key_(int keycode)
 		printf("Key K_Q\n");
 		exit(1);
 	}
-	if (keycode == K_D)
+	if (keycode == K_D) //move right
 	{
-		printf("Key02\n");
+		move_img(1, 0);
+	}
+	if (keycode == K_A) //move left
+	{
+		move_img(-1, 0);
 	}
 	return (0);
 }
