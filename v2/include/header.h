@@ -66,7 +66,7 @@ void		draw_img_square(t_img *img, int color);
 void		mpp(t_img *img, int x, int y, int color); //my_pixel_put
 //keys
 int			ft_key_hook(int keycode, t_window *w);
-void		key_listener(void *w);
+void		key_listener(void);
 //move
 void		move_img(double x, double y);
 

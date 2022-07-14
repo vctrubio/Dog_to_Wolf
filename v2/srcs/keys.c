@@ -19,8 +19,14 @@ static int	ft_key_(int keycode)
 }
 
 
-void	key_listener(void *w)
+void	key_listener(void)
 {
+	t_game	*g;
+	void	*w;
+
+	g = _game();
+	w = g->w->window;
+
 	printf("init_key_listnener\n");
 	mlx_key_hook(w, ft_key_, w);
 }

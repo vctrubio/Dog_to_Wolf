@@ -30,7 +30,7 @@ int main()
 	mlx_put_image_to_window(w->mlx, w->window, game->p->img, img->pos_x, img->pos_y);
 
 	//MLX LOOP
-	key_listener(w->window);
+	key_listener();
 	mlx_loop(w->mlx);
 	return (0);
 }
