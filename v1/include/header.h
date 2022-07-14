@@ -32,19 +32,6 @@ typedef struct	s_window
 	void	*window;
 }				t_window;
 
-typedef struct	s_vector
-{
-	int	x;
-	int	y;
-}				t_vector;
-
-typedef struct	s_map
-{
-	char	**map;
-	int		max_y;
-	int		max_x;
-}				t_map;
-
 typedef struct	s_img
 {
 	t_window	*w;
@@ -57,20 +44,9 @@ typedef struct	s_img
 	int			width;
 }				t_img;
 
-
-
 typedef struct	s_game
 {
 	t_window	*w; //window/mlx
-	t_map		*map;
-	double		pos_x; //Position of payer
-	double		pos_y;
-	double		d_x;   //distance to x intersection
-	double		d_y;
-	double		plane_x; //distance of plane (player view of ray)
-	double		plane_y;
-	double		moveSpeed;
-	double		rotSpeed;
 }				t_game;
 
 //static
@@ -78,25 +54,17 @@ t_game		*_game(void);
 t_window	*_window(void);
 //staticRTN
 t_window	*rtn_window(void);
-t_game	*rtn_game(void);
-t_img	*rtn_img(int x, int y);
+t_game		*rtn_game(void);
+t_img		*rtn_img(int x, int y);
 
 //draw
-void	draw_img_square(t_img *img, int color);
+void		draw_img_square(t_img *img, int color);
 //pixelManipulation
-void	mpp(t_img *img, int x, int y, int color); //my_pixel_put
-
-
-
-
-//map
-void	print_map(t_map *map);
-t_map	*rtn_map(void);
-//parser
+void		mpp(t_img *img, int x, int y, int color); //my_pixel_put
 
 //keys
-int		ft_key_hook(int keycode, t_window *w);
-void	key_listener(void *w);
+int			ft_key_hook(int keycode, t_window *w);
+void		key_listener(void *w);
 
 
 //calloc
@@ -116,6 +84,6 @@ char	*ft_strdup(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 //utilGNL
-int	get_next_line(int fd, char **line);
+int		get_next_line(int fd, char **line);
 
 #endif
