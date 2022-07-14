@@ -1,0 +1,36 @@
+64 bits each cube
+player is 32 bit tal
+60 degree POV
+
+
+
+typedef struct	s_img
+{
+	t_window	*window;
+	void		*img;
+	int			x;
+	int			y;
+	int			height;
+	int			width;
+}				t_img;
+
+typedef struct	s_sprite
+{
+	// int		y;
+	// int		x;
+	int		pos_y;
+	int		pos_x;
+	int		width;
+	int		height;
+	t_img	*img;
+}				t_sprite;
+
+
+typedef struct s_ray
+{
+	float	camera;
+	double	dir_x;
+	double	dir_y;
+	int		pos_x;
+	int		pos_y;
+}				t_ray;
