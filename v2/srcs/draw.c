@@ -12,5 +12,4 @@ void	draw_img_square(t_img *img, int color)
 		while (++x < img->width)
 			mpp(img, x, y, color);
 	}
-
 }

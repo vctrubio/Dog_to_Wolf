@@ -14,3 +14,9 @@ t_window	*_window(void)
 	return (&w);
 }
 
+t_key	*_key(void)
+{
+	static t_key	k;
+
+	return(&k);
+}

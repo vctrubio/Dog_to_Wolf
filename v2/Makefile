@@ -13,3 +13,5 @@ clean:
 	$(RM) $(OBJS) $(NAME)
 
 re: clean all
+#MAKE SURE TO make inside libft
+#YES- it needs imporvement

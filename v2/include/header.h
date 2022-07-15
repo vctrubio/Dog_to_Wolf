@@ -55,12 +55,14 @@ typedef struct	s_game
 //static
 t_game		*_game(void);
 t_window	*_window(void);
+t_key		*_key(void);
 //staticRTN
 t_window	*rtn_window(void);
 t_game		*rtn_game(void);
 t_img		*rtn_img(int x, int y);
 
 //draw
+void		draw_game(void);
 void		draw_img_square(t_img *img, int color);
 //pixelManipulation
 void		mpp(t_img *img, int x, int y, int color); //my_pixel_put
