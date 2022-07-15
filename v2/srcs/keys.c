@@ -48,16 +48,25 @@ static int	ft_key_(int keycode)
 int	test_key_code(int keycode)
 {
 	printf("hello from test %d\n", keycode);
+	move_img_1(1,0);
+	draw_game();
 	return (keycode);
 }
 
+int	test_key_exit(int keycode)
+{
+	if (keycode == K_ESC)
+		exit(1);
+	return (0);
+}
 
 void	key_listener(void)
 {
 	t_game	*g;
 
 	g = _game();
-	mlx_hook(g->w->window, 2, 1, test_key_code, NULL); //key_down
-	mlx_hook(g->w->window, 3, 1, test_key_code, NULL); //key_realesed
+	mlx_hook(g->w->window, 2, 0, test_key_code, NULL); //key_down
+	mlx_hook(g->w->window, 2, 0, test_key_exit, NULL); //key_down
+	mlx_hook(g->w->window, 3, 0, test_key_code, NULL); //key_realesed
 
 }

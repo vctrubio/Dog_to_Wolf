@@ -8,6 +8,7 @@
 # define K_S 1
 # define K_D 2
 # define K_Q 12
+# define K_ESC 53
 
 
 //COLORCODE RBG
