@@ -50,6 +50,9 @@ typedef struct	s_game
 {
 	t_window	*w; //window/mlx
 	t_img		*p; //imaginePlayer
+	double		pos_x;
+	double		pos_y;
+
 }				t_game;
 
 //static
@@ -64,14 +67,17 @@ t_img		*rtn_img(int x, int y);
 //draw
 void		draw_game(void);
 void		draw_img_square(t_img *img, int color);
+
 //pixelManipulation
-void		mpp(t_img *img, int x, int y, int color); //my_pixel_put
+void		mpp(t_img *img, int x, int y, int color);
 //keys
 int			ft_key_hook(int keycode, t_window *w);
 void		key_listener(void);
 //move
 void		move_img(double x, double y);
-
+//inits
+void		init_img_pos(t_img *img, double x, double y);
+void		init_keys(void);
 
 
 //calloc

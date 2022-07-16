@@ -3,21 +3,15 @@
 move a simple img
 */
 
-void	init_img_pos(t_img *img, double x, double y) //double because I think it will be move convinient in the future, but idfn
-{
-	img->pos_x = x;
-	img->pos_y = y;
-}
-
-void	draw_game(void)
+int	gameloop(void) //infinite gameloop (always running)
 {
 	t_game	*game;
-	t_img	*img;
 
 	game = _game();
-	img = game->p;
-	printf("draw_game\n");
-	mlx_put_image_to_window(game->w->mlx, game->w->window, game->p->img, img->pos_x, img->pos_y);
+	game->pos_x = game->p->pos_x;
+	game->pos_y = game->p->pos_y;
+	draw_game();
+	return (0);
 }
 
 int	main()
@@ -35,11 +29,11 @@ int	main()
 
 	//PROGRAM
 	w->window = mlx_new_window(w->mlx, WWIDTH, WHEIGHT, "Dog_to_Wolf");
-	draw_img_square(img, MYRED);
-	init_img_pos(img, 0, 0);
-	draw_game();
+	draw_img_square(game->p, MYRED);
+	init_img_pos(img, 45, 45);
 
 	//MLX LOOP
+	mlx_loop_hook(game->w->mlx, &gameloop, NULL);
 	key_listener();
 	mlx_loop(w->mlx); //This function never returns. It is an infinite loop  that  waits for an event
 	return (0);

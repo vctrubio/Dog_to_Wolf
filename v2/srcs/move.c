@@ -1,6 +1,5 @@
 #include "../include/header.h"
 
-
 void	move_img(double x, double y)
 {
 	t_game	*g;

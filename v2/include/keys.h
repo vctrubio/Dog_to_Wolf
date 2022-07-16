@@ -9,11 +9,13 @@
 # define K_D 2
 # define K_Q 12
 # define K_ESC 53
+# define K_R 15
 
 
 //COLORCODE RBG
 # define MYRED 0x00FF0011
 # define MYREDISH 0x00911100
+# define MYGREEN 0x000011F9
 
 typedef struct	s_key
 {
