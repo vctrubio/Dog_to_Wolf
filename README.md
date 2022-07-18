@@ -4,3 +4,5 @@ I found that while creating Cube- even tho there is a ton of information
  of my experenice. 
  Boilerplate will be updated towards the end, when I know what it should look like for anyone that is looking to start.
  GL
+
+PS: everything was done in vim, for practice...
