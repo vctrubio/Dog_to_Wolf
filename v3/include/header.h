@@ -35,9 +35,9 @@ typedef struct	s_window
 typedef struct	s_map
 {
 	char	**map;
-	int		max_y;
-	int		max_x;
-}				t_map;
+	int	max_y;
+	int	max_x;
+}		t_map;
 
 typedef struct	s_img
 {
@@ -55,7 +55,7 @@ typedef struct	s_img
 typedef struct	s_game
 {
 	t_window	*w; //window/mlx
-	t_img		*p; //imaginePlayer
+	t_img		*img; //imaginePlayer
 	double		pos_x;
 	double		pos_y;
 }				t_game;
@@ -64,11 +64,17 @@ typedef struct	s_game
 t_game		*_game(void);
 t_window	*_window(void);
 t_key		*_key(void);
+t_map		*_map(void);
+
 //staticRTN
 t_window	*rtn_window(void);
 t_game		*rtn_game(void);
 t_img		*rtn_img(int x, int y);
+t_img		*rtn_img2(int x, int y, t_window *w);
 
+//parse
+void		parse_map_to_img(void);
+void		parse_map(char *file);
 //draw
 void		draw_game(void);
 void		draw_img_square(t_img *img, int color);
@@ -83,7 +89,7 @@ void		move_img(double x, double y);
 //inits
 void		init_img_pos(t_img *img, double x, double y);
 void		init_keys(void);
-
+void		init_map(t_list *lst);
 
 //calloc
 void	*ft_memset(void *s, int c, size_t n);
@@ -93,7 +99,7 @@ void	*ft_calloc(size_t n, size_t size);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstnew(void *content);
-int		ft_lstsize(t_list *lst);
+int	ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 //utilStr
 size_t	ft_strlen(const char *s);
@@ -103,5 +109,8 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 //utilGNL
 int		get_next_line(int fd, char **line);
-
+//utilPRINT
+void	print_map(void);
+//XTRA
+void wnl_1(void);
 #endif

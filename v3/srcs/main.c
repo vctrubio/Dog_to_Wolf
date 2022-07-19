@@ -1,6 +1,9 @@
 #include "../include/header.h"
-/* V2
-move a simple img
+/* V3
+create map from map.ber
+parse image
+put image
+move image
 */
 
 int	gameloop(void) //infinite gameloop (always running)
@@ -11,26 +14,6 @@ int	gameloop(void) //infinite gameloop (always running)
 	draw_game();
 	return (0);
 }
-
-t_img	*rtn_img2(int x, int y)
-{
-	t_img	*img;
-
-	img = malloc(sizeof(t_img));
-	if (!x)
-		x = SDWIDTH;
-	if (!y)
-		y = SDHEIGHT;
-	img->w = _game()->img->w;
-	img->width = x * UNIT;
-	img->height = y * UNIT;
-	// printf("create img %d %d|\n", img->width, img->height);
-	img->img = mlx_new_image(img->w->mlx, img->width, img->height);
-	img->addr = mlx_get_data_addr(img->img, &img->bbp, &img->line_length, &img->endian);
-	return (img);
-}
-
-
 
 t_img	*insert_sprite(int y, int x, int color)
 {
@@ -83,18 +66,22 @@ int	main()
 	game->w = w;
 	//PROGRAM
 	w->window = mlx_new_window(w->mlx, WWIDTH, WHEIGHT, "Dog_to_Wolf");
+	wnl_1();
+
 	//PARSE
-//	parse_map_to_img();	
-	//my_map();	
-	t_img *sprite = insert_sprite(2, 2, MYRED);
-	mlx_put_image_to_window(_game()->w->mlx, _game()->w->window, _game()->img->img, 23, 25);
+	// parse_map_to_img();	
+
+//	my_map();	
+//	t_img *sprite = insert_sprite(2, 2, MYRED);
+//	mlx_put_image_to_window(_game()->w->mlx, _game()->w->window, _game()->img->img, 23, 25);
 
 	//MOVING THE PLAYER
 //	game->pos_x = 18;
 //	game->pos_y = 8;
 
+	// mlx_put_image_to_window(game->w->mlx, game->w->window, game->img->img, game->pos_x, game->pos_y);
 	//MLX LOOP
-	mlx_loop_hook(game->w->mlx, &gameloop, NULL);
+	// mlx_loop_hook(game->w->mlx, &gameloop, NULL);
 	key_listener();
 	mlx_loop(w->mlx); //This function never returns. It is an infinite loop  that  waits for an event
 	return (0);

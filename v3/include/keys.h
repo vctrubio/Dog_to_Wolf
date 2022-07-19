@@ -17,6 +17,7 @@
 # define MYRED 0x00FF0011
 # define MYREDISH 0x00911100
 # define MYGREEN 0x0000F900
+# define MYBLUE 0x00F90000
 
 typedef struct	s_key
 {
