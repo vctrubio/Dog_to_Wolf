@@ -21,6 +21,6 @@ void	draw_game(void)
 	t_img	*img;
 
 	game = _game();
-	img = game->p;
-	mlx_put_image_to_window(game->w->mlx, game->w->window, game->p->img, game->pos_x, game->pos_y);
+	img = game->img;
+	mlx_put_image_to_window(game->w->mlx, game->w->window, game->img->img, game->pos_x, game->pos_y);
 }

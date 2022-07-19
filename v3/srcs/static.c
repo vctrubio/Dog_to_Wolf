@@ -20,3 +20,10 @@ t_key	*_key(void)
 
 	return(&k);
 }
+
+t_map	*_map(void)
+{
+	static t_map	m;
+
+	return (&m);
+}

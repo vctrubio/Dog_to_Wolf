@@ -14,7 +14,7 @@ int	test_key_code(int keycode)
 	if (keycode == K_W)
 		move_img(0,-1);
 	if (keycode == K_G)
-		draw_img_square(_game()->p, MYGREEN);
+		draw_img_square(_game()->img, MYGREEN);
 	return (keycode);
 }
 

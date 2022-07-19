@@ -28,10 +28,11 @@ t_img	*rtn_img(int x, int y)
 	if (!y)
 		y = SDHEIGHT;
 	img->w = rtn_window();
-	img->width = x;
-	img->height = y;
+	img->width = x * UNIT;
+	img->height = y * UNIT;
 	// printf("create img %d %d|\n", img->width, img->height);
 	img->img = mlx_new_image(img->w->mlx, img->width, img->height);
 	img->addr = mlx_get_data_addr(img->img, &img->bbp, &img->line_length, &img->endian);
 	return (img);
 }
+
