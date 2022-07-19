@@ -7,12 +7,12 @@ void	mpp(t_img *img, int x, int y, int color)
 
 	if (x > img->width)
 	{
-		printf("TOO LARGS x=%d>img->width\n", x);
+		printf("TOO LARGS x=%d>img->width (%d)\n", x, img->width);
 		return ;
 	}
 	if (y > img->height)
 	{
-		printf("TOO LARGE y=%d>img->height\n", y);
+		printf("TOO LARGE y=%d>img->height (%d)\n", y, img->height);
 		return ;
 	}
 	dst = img->addr + (y * img->line_length + x * (img->bbp / 8));

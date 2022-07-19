@@ -7,9 +7,11 @@ int	ft_lstsize(t_list *lst)
 	index = 0;
 	while (lst)
 	{
+		// printf("%s--\n", (char*)lst->content);
 		lst = lst->next;
 		index++;
 	}
+	// printf("return %d\n", index);
 	return (index);
 }
 

@@ -76,6 +76,7 @@ t_img		*rtn_img2(int x, int y, t_window *w);
 void		parse_map_to_img(void);
 void		parse_map(char *file);
 //draw
+void	fill_img_square(t_img *img, int cord_x, int cord_y, int color);
 void		draw_game(void);
 void		draw_img_square(t_img *img, int color);
 
@@ -85,7 +86,7 @@ void		mpp(t_img *img, int x, int y, int color);
 int			ft_key_hook(int keycode, t_window *w);
 void		key_listener(void);
 //move
-void		move_img(double x, double y);
+void		move_img(int x, int y);
 //inits
 void		init_img_pos(t_img *img, double x, double y);
 void		init_keys(void);
@@ -111,6 +112,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		get_next_line(int fd, char **line);
 //utilPRINT
 void	print_map(void);
+//utilCONVERT
+int		unit_nb(int x);
 //XTRA
 void wnl_1(void);
 #endif

@@ -22,13 +22,13 @@ void	init_map(t_list *lst)
 	int		i;
 	
 	map = _map();
-	map->max_y = ft_lstsize(lst) - 1;
+	map->max_y = ft_lstsize(lst);
 	map->max_x = ft_strlen(lst->content); //assuming its even
 	map->map = ft_calloc(map->max_y + 1, sizeof(char *));
 	i = 0;
-	while (lst->next)
+	while (lst)
 	{
-		map->map[i++] = lst->content;
+		map->map[i++] = (char*)lst->content;
 		lst = lst->next;
 	}
 	map->map[i] = NULL;

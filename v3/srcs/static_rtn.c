@@ -46,7 +46,7 @@ t_img	*rtn_img(int x, int y)
 	if (!y)
 		y = SDHEIGHT;
 	img->w = rtn_window();
-	img->width = x * UNIT;
+	img->width = x * UNIT; //for bigger map view purposes
 	img->height = y * UNIT;
 	// printf("create img %d %d|\n", img->width, img->height);
 	img->img = mlx_new_image(img->w->mlx, img->width, img->height);
