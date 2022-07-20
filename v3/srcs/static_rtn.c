@@ -18,7 +18,7 @@ t_game	*rtn_game(void)
 	return (game);
 }
 
-t_img	*rtn_img2(int x, int y, t_window *w)
+t_img	*rtn_img2(int x, int y, t_window *w) //not used- just for testing purposes - understand what window to use
 {
 	t_img	*img;
 

@@ -1,5 +1,16 @@
 #include "../include/header.h"
 
+void	fill_map_color(int color)
+{
+	t_map	*map;
+	t_img	*map_image;
+	int		x;
+	int		y;
+
+	map_image = _game()->img;
+	draw_img_square(map_image, color);
+}
+
 void	fill_img_square(t_img *img, int cord_x, int cord_y, int color)
 {
 	int	x;
@@ -15,10 +26,7 @@ void	fill_img_square(t_img *img, int cord_x, int cord_y, int color)
 		x = -1;
 		cord_x = i;
 		while (++x < UNIT)
-		{
-			// printf("%dentering X(%d)Y(%d) %d %d:\n", UNIT, x, y, cord_x, cord_y);
 			mpp(img, cord_x++, cord_y, color);
-		}
 		cord_y++;
 	}
 }
@@ -29,7 +37,7 @@ void	draw_img_square(t_img *img, int color)
 	int	y;
 
 	y = -1;
-	printf("height draw: %d & %d\n\n", img->height, img->width);
+	//printf("height draw: %d & %d\n\n", img->height, img->width);
 	while (++y < img->height)
 	{
 		x = -1;
@@ -38,13 +46,35 @@ void	draw_img_square(t_img *img, int color)
 	}
 }
 
-
 void	draw_game(void)
 {
 	t_game	*game;
 	t_img	*img;
 
+	my_map_loop();
 	game = _game();
-	img = game->img;
-	mlx_put_image_to_window(game->w->mlx, game->w->window, game->img->img, game->pos_x, game->pos_y);
+	mlx_put_image_to_window(game->w->mlx, game->w->window, game->img->img, 0, 0); 
+}
+
+void	draw_gridline(void)
+{
+	t_img	*img;
+	int	y;
+	int	x;
+
+	img = _game()->img;
+	y = -1;
+	while (++y < img->height)
+	{
+		if (y % UNIT == 0)
+		{
+			x = -1;
+			while (++x < img->width)
+				mpp(img, x, y, MYWHITE);
+		}
+		x = -1;
+		while (++x < img->width)
+			if (x % UNIT == 0)
+				mpp(img, x, y, MYWHITE);
+	}	
 }

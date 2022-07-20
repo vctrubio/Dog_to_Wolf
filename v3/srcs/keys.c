@@ -6,22 +6,14 @@ int	test_key_code(int keycode)
 		exit(1);
 	printf("hello from test_key_code %d\n", keycode);
 	if (keycode == K_D)
-		move_img(1,0);
+		move_player(0, 1);
 	if (keycode == K_A)
-		move_img(-1,0);
+		move_player(0, -1);
 	if (keycode == K_S)
-		move_img(0,1);
+		move_player(1, 0);
 	if (keycode == K_W)
-		move_img(0,-1);
-	if (keycode == K_G)
-		draw_img_square(_game()->img, MYGREEN);
+		move_player(-1, 0);
 	return (keycode);
-}
-
-int	test_no_event(int key)
-{
-	printf("test_n_event\n");
-	return (0);
 }
 
 void	key_listener(void)

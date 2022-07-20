@@ -18,7 +18,7 @@
 # define SDHEIGHT 5 //STANDARD_HEIGHT
 # define SDWIDTH 5
 # define BUFFER_SIZE 1
-# define UNIT 64  //MAP_UNIT
+# define UNIT 24  //MAP_UNIT- change it if you want, will resize the game
 
 typedef struct	s_list
 {
@@ -60,39 +60,43 @@ typedef struct	s_game
 	double		pos_y;
 }				t_game;
 
-//static
+//static AKA GLOBAL_fts
 t_game		*_game(void);
 t_window	*_window(void);
 t_key		*_key(void);
 t_map		*_map(void);
-
 //staticRTN
 t_window	*rtn_window(void);
 t_game		*rtn_game(void);
 t_img		*rtn_img(int x, int y);
 t_img		*rtn_img2(int x, int y, t_window *w);
 
-//parse
+//parse PROGRAM
 void		parse_map_to_img(void);
 void		parse_map(char *file);
-//draw
-void	fill_img_square(t_img *img, int cord_x, int cord_y, int color);
-void		draw_game(void);
-void		draw_img_square(t_img *img, int color);
-
 //pixelManipulation
 void		mpp(t_img *img, int x, int y, int color);
+//draw
+void		fill_img_square(t_img *img, int cord_x, int cord_y, int color);
+void		draw_game(void);
+void		draw_img_square(t_img *img, int color);
+void		draw_gridline(void);
+//map
+void		my_map_init(void);
+void		my_map_loop(void);
+//move
+void		update_map_pos(int x, int y);
+void		move_player(int y, int x);
+int			check_next_move(int y, int x);
 //keys
 int			ft_key_hook(int keycode, t_window *w);
 void		key_listener(void);
-//move
-void		move_img(int x, int y);
 //inits
 void		init_img_pos(t_img *img, double x, double y);
 void		init_keys(void);
 void		init_map(t_list *lst);
 
-//calloc
+//calloc EXTRAS/MYLIBFT
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t n, size_t size);
@@ -115,5 +119,5 @@ void	print_map(void);
 //utilCONVERT
 int		unit_nb(int x);
 //XTRA
-void wnl_1(void);
+void wnl_1(void); //test
 #endif

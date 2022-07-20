@@ -1,15 +1,37 @@
 #include "../include/header.h"
 
-void	move_img(int x, int y)
+void	update_map_pos(int x, int y)
 {
-	t_game	*g;
+	_game()->pos_x = x;
+	_game()->pos_y = y;
+}
 
-	g = _game();
+int	check_next_move(int y, int x)
+{
+	if (_map()->map[y][x] == '0')
+	{
+		printf("IS FREE (%d, %d)\n", y, x);
+		return (1);
+	}
+	else
+		printf("IS NOT %c--at %d %d|\n", _map()->map[y][x], y, x);
+	return (0);
+}
 
-	printf("PLAYER CORD BEFORE %.f, %.f\n",  g->pos_x,  g->pos_y);
-	if (x)
-		g->pos_x += x;
-	if (y)
-		g->pos_y += y;
-	printf("PLAYER CORD %.f, %.f\n", g->pos_x, g->pos_y);
+void	move_player(int y, int x)
+{
+	int	pos_x;
+	int	pos_y;
+
+	pos_x = _game()->pos_x;
+	pos_y = _game()->pos_y;
+	
+	if (check_next_move(pos_y + y, pos_x + x))
+	{
+		_map()->map[pos_y][pos_x] = '0';
+		_map()->map[pos_y +y][pos_x + x] = 'p';
+		update_map_pos(pos_x +x, pos_y + y);
+		printf("completed update  NEW POS (%f,%f)\n", _game()->pos_y, _game()->pos_x);
+	}
+	print_map(); //for viewers eyes only
 }

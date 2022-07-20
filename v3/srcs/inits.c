@@ -1,11 +1,6 @@
 #include "../include/header.h"
 
-void	init_img_pos(t_img *img, double x, double y) //double because I think it will be move convinient in the future, but idfn
-{
-
-}
-
-void	init_keys(void)
+void	init_keys(void) //Not using it atm... Maybe later
 {
 	_key()->W = 0;
 	_key()->A = 0;
