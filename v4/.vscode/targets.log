@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Wed Jul 20 14:12:52 2022
+# Make data base, printed on Sat Jul 23 12:51:56 2022
 
 # Variables
 
@@ -32,7 +32,7 @@ rvm_path = /Users/V/.rvm
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/V/Documents/42/summer22/cube_versions/v3
+CURDIR := /Users/V/Documents/42/summer22/cube_versions/v4
 # makefile
 SHELL = /bin/sh
 # makefile (from `Makefile', line 4)
@@ -42,7 +42,7 @@ VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupp
 # environment
 _ = /usr/bin/make
 # environment
-VSCODE_PID = 35079
+VSCODE_PID = 48520
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # makefile (from `Makefile', line 2)
@@ -54,7 +54,7 @@ rvm_ruby_make =
 # makefile (from `Makefile', line 3)
 OBJS = $(SRCS:.c=.o)
 # environment
-VSCODE_CWD = /Users/V/Documents/42/summer22/cube_versions/v3
+VSCODE_CWD = /Users/V/Documents/42/summer22/cube_versions/v4
 # environment
 Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.gb6g8zsSo8/Render
 # environment
@@ -82,13 +82,13 @@ SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.NxyIfCw6IL/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-TTY = /dev/ttys001
+TTY = /dev/ttys000
 # environment
 FIG_ENV_VAR = 1
 # environment
 rvm_bin_path = /Users/V/.rvm/bin
 # environment
-PWD = /Users/V/Documents/42/summer22/cube_versions/v3
+PWD = /Users/V/Documents/42/summer22/cube_versions/v4
 # environment
 GEM_HOME = /Users/V/.rvm/gems/ruby-2.5.3
 # environment
@@ -104,7 +104,7 @@ MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /De
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/V/Library/Application Support/Code/CachedData/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a
+VSCODE_CODE_CACHE_PATH = /Users/V/Library/Application Support/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
 LOGNAME = V
 # environment
@@ -142,7 +142,7 @@ USER = V
 # makefile
 .DEFAULT_GOAL := all
 # environment
-TERM_SESSION_ID = 726323FF-CE6C-4C97-A923-9F45994EF486
+TERM_SESSION_ID = 142AEE42-0204-4558-A724-54760EDF32F1
 # environment
 rvm_version = 1.29.10-next (master)
 # environment
@@ -160,7 +160,7 @@ TMPDIR = /var/folders/dx/1mwgg8zn23964hxvr_jsm4vh0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/V/Library/Application Support/Code/1.69.1-main.sock
+VSCODE_IPC_HOOK = /Users/V/Library/Application Support/Code/1.69.2-main.sock
 # makefile
 MAKEFLAGS = Rrqp
 # makefile (from `Makefile', line 1)
@@ -232,8 +232,8 @@ rvm_nightly_flag =
 
 # Directories
 
-# . (device 16777220, inode 8635803611): 12 files, no impossibilities.
-# ./srcs (device 16777220, inode 8635803658): 20 files, no impossibilities.
+# . (device 16777220, inode 8636056800): 12 files, no impossibilities.
+# ./srcs (device 16777220, inode 8636056847): 20 files, no impossibilities.
 
 # 32 files, no impossibilities in 2 directories.
 
@@ -327,6 +327,6 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Jul 20 14:12:52 2022
+# Finished Make data base on Sat Jul 23 12:51:56 2022
 
  

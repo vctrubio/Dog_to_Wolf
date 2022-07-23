@@ -1,5 +1,24 @@
 #include "../include/header.h"
 
+void	find_p_on_map(void) 
+{
+	t_map	*map;
+	int	y;
+	int	x;
+
+	y = -1;
+	map = _map();
+	while (map->map[++y])
+	{
+		x = -1;
+		while (map->map[y][++x])
+		{
+			if (map->map[y][x] == 'p')
+				update_map_pos(x, y);
+		}
+	}
+}
+
 void	my_map_loop(void)
 {
 	t_map	*map;
@@ -27,7 +46,6 @@ void	my_map_loop(void)
 	}
 }
 
-
 void	my_map_init(void)
 {
 	t_map	*map;
@@ -43,7 +61,6 @@ void	my_map_init(void)
 		x = -1;
 		while (map->map[y][++x])
 		{
-			// printf("eval %c at %d %d\n", map->map[y][x], y, x);
 			if (map->map[y][x] == '1')
 				fill_img_square(img, x, y, MYRED);
 			else if (map->map[y][x] == 'p')
@@ -54,8 +71,10 @@ void	my_map_init(void)
 			else if (map->map[y][x] == '2')
 				fill_img_square(img, x, y, MYREDISH);
 		}
-		// printf("\n");
 	}
 	draw_gridline();
 }
 
+		
+		// printf("eval %c at %d %d\n", map->map[y][x], y, x);
+		// printf("\n");

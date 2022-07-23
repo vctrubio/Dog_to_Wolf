@@ -37,7 +37,7 @@ typedef struct	s_map
 	char	**map;
 	int	max_y;
 	int	max_x;
-}		t_map;
+}				t_map;
 
 typedef struct	s_img
 {
@@ -67,10 +67,7 @@ t_key		*_key(void);
 t_map		*_map(void);
 //staticRTN
 t_window	*rtn_window(void);
-t_game		*rtn_game(void);
-t_img		*rtn_img(int x, int y);
-t_img		*rtn_img2(int x, int y, t_window *w);
-
+t_img		*rtn_img(int x, int y, t_window *w);
 //parse (PROGRAM)
 void		init_map(t_list *lst);
 void		parse_map(char *file);
@@ -82,6 +79,7 @@ void		draw_game(void);
 void		draw_img_square(t_img *img, int color);
 void		draw_gridline(void);
 //map
+void		find_p_on_map(void);
 void		my_map_init(void);
 void		my_map_loop(void);
 //move

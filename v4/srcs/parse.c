@@ -34,5 +34,6 @@ void	parse_map(char *file)
 	while (get_next_line(fd, &line))
 		ft_lstadd_back(&lst, ft_lstnew((void *)ft_strdup(line)));
 	close(fd);
-	return (init_map(lst));
+	init_map(lst);
+	find_p_on_map();
 }
