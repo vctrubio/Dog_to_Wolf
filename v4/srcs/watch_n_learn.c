@@ -16,7 +16,7 @@ void	wnl_1(void)
 
 	mlx_put_image_to_window(_game()->w->mlx, _game()->w->window, i1->img, 0, 0);
 	mlx_put_image_to_window(_game()->w->mlx, _game()->w->window, i3->img, 0, 0);
-	mlx_put_image_to_window(_game()->w->mlx, _game()->w->window, i3->img, UNIT + 1, UNIT + 1);
+	mlx_put_image_to_window(_game()->w->mlx, _game()->w->window, i3->img, M_UNIT + 1, M_UNIT + 1);
 
 	// mlx_put_image_to_window(_game()->w->mlx, _game()->w->window, i2->img, 0, 65);
 	// mlx_put_image_to_window(_game()->w->mlx, _game()->w->window, i2->img, 65, 65);

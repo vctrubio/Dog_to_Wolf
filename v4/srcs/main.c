@@ -6,13 +6,8 @@ map[yvector][xvector]
 
 int	gameloop(void) 
 {
-	// t_game	*game;
-
-	// game = _game();
-	// print_map();
-	// find_p_on_map();
 	//ft_raycast();
-	draw_game();
+	draw_mini_game();
 	return (0);
 }
 
@@ -22,6 +17,7 @@ int	gameloop(void)
 3. RAYCAST
 4. LOOPS- MLX & KEYS
 */
+
 int	main()
 {
 	t_game		*game;
@@ -35,11 +31,9 @@ int	main()
 	print_map();
 	game_img_map = rtn_img(_map()->max_x, _map()->max_y, game->w);
 	game->img = game_img_map;
-	// fill_map_color(MYWHITE);
 
 	//RAYCAST
-	ft_raycast();
-	
+	ft_raycast(); //to put in the gameloop- but not working
 
 	mlx_loop_hook(game->w->mlx, &gameloop, NULL);
 	key_listener();

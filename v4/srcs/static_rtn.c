@@ -20,8 +20,8 @@ t_img	*rtn_img(int x, int y, t_window *w)
 	if (!y)
 		y = SDHEIGHT;
 	img->w = w;
-	img->width = x * UNIT; //for bigger map view purposes
-	img->height = y * UNIT;
+	img->width = x * M_UNIT; //for mini_map view purposes
+	img->height = y * M_UNIT;
 	// printf("create img %d %d|\n", img->width, img->height);
 	img->img = mlx_new_image(img->w->mlx, img->width, img->height);
 	img->addr = mlx_get_data_addr(img->img, &img->bbp, &img->line_length, &img->endian);

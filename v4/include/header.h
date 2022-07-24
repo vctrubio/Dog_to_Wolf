@@ -18,7 +18,7 @@
 # define SDHEIGHT 42 //STANDARD_HEIGHT
 # define SDWIDTH 42
 # define BUFFER_SIZE 1
-# define UNIT 10  //MAP_UNIT- change it if you want, will resize the game
+# define M_UNIT 10  //MAP_UNIT- change it if you want, will resize the game
 
 typedef struct	s_list
 {
@@ -77,8 +77,8 @@ typedef struct	s_raycast
 
 typedef struct	s_game
 {
-	t_window	*w; //window/mlx
-	t_img		*img; //imaginePlayer
+	t_window	*w;
+	t_img		*img;
 	double		pos_x;
 	double		pos_y;
 	double		dir_x;
@@ -100,6 +100,7 @@ t_raycast	*_raycast(void);
 //staticRTN
 t_window	*rtn_window(void);
 t_img		*rtn_img(int x, int y, t_window *w);
+
 //parse (PROGRAM)
 void		init_map(t_list *lst);
 void		parse_map(char *file);
@@ -108,7 +109,7 @@ void		mpp(t_img *img, int x, int y, int color);
 //draw
 void		fill_map_color(int color);
 void		fill_img_square(t_img *img, int cord_x, int cord_y, int color);
-void		draw_game(void);
+void		draw_mini_game(void);
 void		draw_img_square(t_img *img, int color);
 void		draw_gridline(void); 
 //map 
@@ -128,7 +129,7 @@ void		init_keys(void);
 void		ft_raycast(void);
 void		init_raycast(void);
 
-//calloc (EXTRAS/MYLIBFT)
+//utilCalloc (EXTRAS/MYLIBFT)
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t n, size_t size);

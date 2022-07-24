@@ -121,7 +121,7 @@ void	raycast_aftermath(void)
 	if (draw_end >= cube_height)
 		draw_end = cube_height - 1;
 	//TBC
-
+	
 }
 
 void	ft_raycast(void)

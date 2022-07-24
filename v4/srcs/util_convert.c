@@ -2,5 +2,5 @@
 
 int		unit_nb(int x)
 {
-		return (x * UNIT);
+		return (x * M_UNIT);
 }

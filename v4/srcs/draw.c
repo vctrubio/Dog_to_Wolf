@@ -2,10 +2,7 @@
 
 void	fill_map_color(int color)
 {
-	t_map	*map;
 	t_img	*map_image;
-	int		x;
-	int		y;
 
 	map_image = _game()->img;
 	draw_img_square(map_image, color);
@@ -21,11 +18,11 @@ void	fill_img_square(t_img *img, int cord_x, int cord_y, int color)
 	cord_y = unit_nb(cord_y);
 	i = cord_x;
 	y = -1;
-	while (++y < UNIT)
+	while (++y < M_UNIT)
 	{
 		x = -1;
 		cord_x = i;
-		while (++x < UNIT)
+		while (++x < M_UNIT)
 			mpp(img, cord_x++, cord_y, color);
 		cord_y++;
 	}
@@ -46,12 +43,10 @@ void	draw_img_square(t_img *img, int color)
 	}
 }
 
-void	draw_game(void)
+void	draw_mini_game(void)
 {
 	t_game	*game;
-	t_img	*img;
 
-	// my_map_loop();
 	game = _game();
 	my_map_loop();
 	mlx_put_image_to_window(game->w->mlx, game->w->window, game->img->img, 0, 0); 
@@ -67,7 +62,7 @@ void	draw_gridline(void)
 	y = -1;
 	while (++y < img->height)
 	{
-		if (y % UNIT == 0)
+		if (y % M_UNIT == 0)
 		{
 			x = -1;
 			while (++x < img->width)
@@ -75,7 +70,7 @@ void	draw_gridline(void)
 		}
 		x = -1;
 		while (++x < img->width)
-			if (x % UNIT == 0)
+			if (x % M_UNIT == 0)
 				mpp(img, x, y, MYWHITE);
 	}	
 }
