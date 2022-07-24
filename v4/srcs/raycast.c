@@ -5,7 +5,7 @@ void	init_raycast(void)
 	t_game	*game;
 
 	game = _game();
-	game->dir_x = -1; // general idea
+	game->dir_x = -1; // general idea (looking down)
 	game->dir_y = 0;
 	game->plane_x = 0;
 	game->plane_y = 0.66; //first-person shooter POV
@@ -59,7 +59,7 @@ void	raycast_second_loop(void)
 }
 
 //DDA
-void	raycast_wall_calc(void)
+void	raycast_calc_to_wall(void)
 {
 	t_raycast	*r;
 	t_map		*m;
@@ -102,9 +102,6 @@ void	raycast_wall_calc(void)
 void	raycast_aftermath(void)
 {
 	t_raycast	*r;
-	int		lineheight;
-	int		draw_start;
-	int		draw_end;
 	int		cube_height;
 
 	r = _raycast();
@@ -112,17 +109,23 @@ void	raycast_aftermath(void)
 		r->perp_walldist = (r->map_x - _game()->pos_x + (1 - r->step_x) / 2) / r->ray_dirx;
 	else
 		r->perp_walldist = (r->map_y - _game()->pos_y + (1 - r->step_y) / 2) / r->ray_diry;
-	cube_height = SDHEIGHT;//WTF IS THE MAP->HEIGHT?
-	lineheight = (int)(cube_height / r->perp_walldist); 
-	draw_start = -lineheight / 2 + cube_height / 2; 
-	if (draw_start < 0)
-		draw_start = 0;
-	draw_end = lineheight / 2 + cube_height / 2;
-	if (draw_end >= cube_height)
-		draw_end = cube_height - 1;
+	cube_height = SDHEIGHT; //WTF IDK- IS it THE MAP->HEIGHT? MAP PENIS?
+	r->lineheight = (int)(cube_height / r->perp_walldist); 
+	r->draw_start = - r->lineheight / 2 + cube_height / 2; 
+	if (r->draw_start < 0)
+		r->draw_start = 0;
+	r->draw_end = r->lineheight / 2 + cube_height / 2;
+	if (r->draw_end >= cube_height)
+		r->draw_end = cube_height - 1;
 	//TBC
 	
 }
+
+void	raycast_draw_texture(int pos)
+{
+
+}
+
 
 void	ft_raycast(void)
 {
@@ -137,7 +140,8 @@ void	ft_raycast(void)
 		printf("test X = %d\n", x);
 		raycast_first_loop(x, y);
 		raycast_second_loop();
-		raycast_wall_calc();
+		raycast_calc_to_wall();
 		raycast_aftermath();
+		raycast_draw_texture(x);
 	}
 }

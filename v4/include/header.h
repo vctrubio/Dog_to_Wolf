@@ -15,8 +15,8 @@
 # define WHEIGHT 600 //WINDOW_HEIGHT
 # define WWIDTH 900
 
-# define SDHEIGHT 42 //STANDARD_HEIGHT
-# define SDWIDTH 42
+# define SDHEIGHT 24 //STANDARD_HEIGHT
+# define SDWIDTH 24
 # define BUFFER_SIZE 1
 # define M_UNIT 10  //MAP_UNIT- change it if you want, will resize the game
 
@@ -67,7 +67,14 @@ typedef struct	s_raycast
 	double	delta_distx;
 	double	delta_disty;
 	double	perp_walldist;
+	
+	int		draw_start;
+	int		draw_end;
+	int		lineheight;
 
+	//idk about these tho
+	double	wall_x;
+	int		text_x;
 
 	int	step_x;
 	int	step_y;
