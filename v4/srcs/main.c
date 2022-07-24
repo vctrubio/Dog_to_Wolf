@@ -1,6 +1,7 @@
 #include "../include/header.h"
 /* V4
 Raycasting
+map[yvector][xvector]
 */
 
 int	gameloop(void) 
@@ -11,6 +12,7 @@ int	gameloop(void)
 	// print_map();
 	// find_p_on_map();
 	// draw_game();
+	//ft_raycast();
 	return (0);
 }
 
@@ -26,13 +28,13 @@ int	main()
 
 	game = _game();
 	game->w = rtn_window();
-	game->w->window = mlx_new_window(game->w->mlx, WWIDTH, WHEIGHT, "Dog_to_Wolf");
 	parse_map(NULL);
+	game->w->window = mlx_new_window(game->w->mlx, _map()->max_x * UNIT, _map()->max_y * UNIT, "Dog_to_Wolf");
 
 	print_map();
 	//RAYCAST
-
-
+	init_raycast();
+	ft_raycast();
 
 	mlx_loop_hook(game->w->mlx, &gameloop, NULL);
 	key_listener();

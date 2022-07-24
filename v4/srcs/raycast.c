@@ -1,7 +1,145 @@
 #include "../include/header.h"
 
+void	init_raycast(void)
+{
+	t_game	*game;
+
+	game = _game();
+	game->dir_x = -1; // general idea
+	game->dir_y = 0;
+	game->plane_x = 0;
+	game->plane_y = 0.66; //first-person shooter POV
+	game->time = 0;
+	game->old_time = 0;
+}
+
+void	init_raycast_math(void)
+{
+	t_raycast	*r;
+
+	r = _raycast();
+	r->hit = 0;
+	r->side = -1; //N,E,S,W
+	r->map_x = _game()->pos_x;
+	r->map_y = _game()->pos_y;
+}
+
+void	raycast_first_loop(int y, int x)
+{
+	t_raycast	*r;
+
+	r = _raycast();
+	r->camera_x = 2 * x / (double)_map()->max_x - 1;
+	r->ray_dirx = _game()->dir_x + _game()->plane_x * r->camera_x;
+	r->ray_diry = _game()->dir_y + _game()->plane_y * r->camera_x;
+	r->map_x = _game()->pos_x;
+	r->map_y = _game()->pos_y;
+	r->delta_distx = fabs(1 / r->ray_dirx);
+	r->delta_disty = fabs(1 / r->ray_diry);
+}
+
+void	raycast_second_loop(void)
+{
+	t_raycast	*r;
+
+	r = _raycast();
+
+	if (r->ray_dirx < 0)
+	{
+		r->step_x = -1;
+		r->side_distx = (_game()->pos_x - r->map_x) * r->delta_distx;
+	}
+	else
+	{
+		r->step_x = 1;
+		r->side_distx = (r->map_x + 1.0 - _game()->pos_x) * r->delta_distx;
+	}
+
+	if (r->ray_diry < 0)
+	{
+		r->step_y = -1,
+		r->side_disty = (_game()->pos_y - r->map_y) * r->delta_disty;
+	}
+	else
+	{
+		r->step_y = 1,
+		r->side_disty = (r->map_y + 1.0 - _game()->pos_y) * r->delta_disty;
+	}
+}
+
+//DDA
+void	raycast_wall_calc(void)
+{
+	t_raycast	*r;
+	t_map		*m;
+
+	r = _raycast();
+	m = _map();
+	while (r->hit == 0)
+	{
+		if (r->side_distx < r->side_disty)
+		{
+			r->side_distx += r->delta_distx;
+			r->map_x += r->step_x;
+			r->side = 0;
+		//	if (r->step_x == 1)
+		//		r->textdir (Wedonthave)
+		}
+		else
+		{
+			r->side_disty += r->delta_disty;
+			r->map_y += r->step_y;
+			r->side = 1;
+		//TBC
+		}
+		if (m->map[(int)r->map_y][(int)r->map_x] == '1') //later != 0
+		{
+			printf("wallhit return at (%.f,%.f)\n", r->map_y, r->map_x);
+			r->hit = 1;
+		}
+		else
+			printf("NOhit return at (%.f,%.f)\n", r->map_y, r->map_x);
+	}
+}
+
+
+void	raycast_aftermath(void)
+{
+	t_raycast	*r;
+	int		lineheight;
+	int		draw_start;
+	int		draw_end;
+	int		cube_height;
+
+	r = _raycast();
+	if (r->side == 0)
+		r->perp_walldist = (r->map_x - _game()->pos_x + (1 - r->step_x) / 2) / r->ray_dirx;
+	else
+		r->perp_walldist = (r->map_y - _game()->pos_y + (1 - r->step_y) / 2) / r->ray_diry;
+	cube_height = UNIT;//WTF IS THE MAP->HEIGHT
+	lineheight = (int)(cube_height / r->perp_walldist); 
+	draw_start = -lineheight / 2 + cube_height / 2; 
+	if (draw_start < 0)
+		draw_start = 0;
+	draw_end = lineheight / 2 + cube_height / 2;
+	if (draw_end >= cube_height)
+		draw_end = cube_height - 1;
+	//TBC
+}
+
 void	ft_raycast(void)
 {
+	int	x;
+	int	y;
 
-
+	y = 0;
+	x = -1;
+	printf("ft_raycast---\n");
+	while (++x < _map()->max_x)
+	{
+		raycast_first_loop(x, y);
+		raycast_second_loop();
+		raycast_wall_calc();
+		raycast_aftermath();
+	}
 }

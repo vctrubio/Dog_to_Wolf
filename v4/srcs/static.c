@@ -27,3 +27,10 @@ t_map	*_map(void)
 
 	return (&m);
 }
+
+t_raycast	*_raycast(void)
+{
+	static	t_raycast	r;
+
+	return (&r);
+}

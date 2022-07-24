@@ -52,12 +52,41 @@ typedef struct	s_img
 	int			color;
 }				t_img;
 
+typedef struct	s_raycast
+{
+	double	camera_x;
+	double	ray_dirx;
+	double	ray_diry;
+	
+	double	map_x;
+	double	map_y;
+	
+	double	side_distx;
+	double	side_disty;
+	
+	double	delta_distx;
+	double	delta_disty;
+	double	perp_walldist;
+
+
+	int	step_x;
+	int	step_y;
+	int	hit;
+	int	side;
+}		t_raycast;
+
 typedef struct	s_game
 {
 	t_window	*w; //window/mlx
 	t_img		*img; //imaginePlayer
 	double		pos_x;
 	double		pos_y;
+	double		dir_x;
+	double		dir_y;
+	double		plane_x;
+	double		plane_y;
+	double		time;
+	double		old_time;
 }				t_game;
 
 //static (AKA GLOBAL_fts)
@@ -65,6 +94,7 @@ t_game		*_game(void);
 t_window	*_window(void);
 t_key		*_key(void);
 t_map		*_map(void);
+t_raycast	*_raycast(void);
 //staticRTN
 t_window	*rtn_window(void);
 t_img		*rtn_img(int x, int y, t_window *w);
@@ -73,12 +103,11 @@ void		init_map(t_list *lst);
 void		parse_map(char *file);
 //pixelManipulation
 void		mpp(t_img *img, int x, int y, int color);
-//draw
 void		fill_img_square(t_img *img, int cord_x, int cord_y, int color);
 void		draw_game(void);
 void		draw_img_square(t_img *img, int color);
-void		draw_gridline(void);
-//map
+void		draw_gridline(void); 
+//map 
 void		find_p_on_map(void);
 void		my_map_init(void);
 void		my_map_loop(void);
@@ -93,6 +122,7 @@ void		key_listener(void);
 void		init_keys(void);
 //raycast
 void		ft_raycast(void);
+void		init_raycast(void);
 
 //calloc (EXTRAS/MYLIBFT)
 void	*ft_memset(void *s, int c, size_t n);
