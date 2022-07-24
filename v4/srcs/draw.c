@@ -37,7 +37,7 @@ void	draw_img_square(t_img *img, int color)
 	int	y;
 
 	y = -1;
-	//printf("height draw: %d & %d\n\n", img->height, img->width);
+	printf("height draw: %d & %d\n\n", img->height, img->width);
 	while (++y < img->height)
 	{
 		x = -1;
@@ -51,8 +51,9 @@ void	draw_game(void)
 	t_game	*game;
 	t_img	*img;
 
-	my_map_loop();
+	// my_map_loop();
 	game = _game();
+	my_map_loop();
 	mlx_put_image_to_window(game->w->mlx, game->w->window, game->img->img, 0, 0); 
 }
 

@@ -15,10 +15,10 @@
 # define WHEIGHT 600 //WINDOW_HEIGHT
 # define WWIDTH 900
 
-# define SDHEIGHT 5 //STANDARD_HEIGHT
-# define SDWIDTH 5
+# define SDHEIGHT 42 //STANDARD_HEIGHT
+# define SDWIDTH 42
 # define BUFFER_SIZE 1
-# define UNIT 64  //MAP_UNIT- change it if you want, will resize the game
+# define UNIT 10  //MAP_UNIT- change it if you want, will resize the game
 
 typedef struct	s_list
 {
@@ -85,8 +85,10 @@ typedef struct	s_game
 	double		dir_y;
 	double		plane_x;
 	double		plane_y;
-	double		time;
-	double		old_time;
+//	double		time; DONT possiblyneedthis
+//	double		old_time;
+	double		move_speed;
+	double		rot_speed;
 }				t_game;
 
 //static (AKA GLOBAL_fts)
@@ -103,6 +105,8 @@ void		init_map(t_list *lst);
 void		parse_map(char *file);
 //pixelManipulation
 void		mpp(t_img *img, int x, int y, int color);
+//draw
+void		fill_map_color(int color);
 void		fill_img_square(t_img *img, int cord_x, int cord_y, int color);
 void		draw_game(void);
 void		draw_img_square(t_img *img, int color);

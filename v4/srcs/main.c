@@ -11,8 +11,8 @@ int	gameloop(void)
 	// game = _game();
 	// print_map();
 	// find_p_on_map();
-	// draw_game();
 	//ft_raycast();
+	draw_game();
 	return (0);
 }
 
@@ -25,16 +25,21 @@ int	gameloop(void)
 int	main()
 {
 	t_game		*game;
+	t_img		*game_img_map;
 
 	game = _game();
 	game->w = rtn_window();
-	parse_map(NULL);
-	game->w->window = mlx_new_window(game->w->mlx, _map()->max_x * UNIT, _map()->max_y * UNIT, "Dog_to_Wolf");
+	game->w->window = mlx_new_window(game->w->mlx, WWIDTH, WHEIGHT, "Dog_to_Wolf");
 
+	parse_map(NULL);
 	print_map();
+	game_img_map = rtn_img(_map()->max_x, _map()->max_y, game->w);
+	game->img = game_img_map;
+	// fill_map_color(MYWHITE);
+
 	//RAYCAST
-	init_raycast();
 	ft_raycast();
+	
 
 	mlx_loop_hook(game->w->mlx, &gameloop, NULL);
 	key_listener();
