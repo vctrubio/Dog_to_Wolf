@@ -6,9 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
 
-# Make data base, printed on Thu Jul 14 16:00:43 2022
+# Make data base, printed on Sat Jul 23 12:39:13 2022
 
 # Variables
 
@@ -33,31 +32,25 @@ rvm_path = /Users/V/.rvm
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/V/Documents/42/summer22/cube_versions/boilerplate
+CURDIR := /Users/V/Documents/42/summer22/cube_versions
 # makefile
 SHELL = /bin/sh
-# makefile (from `Makefile', line 4)
-RM = rm -f
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # environment
-VSCODE_PID = 64765
-# makefile (from `Makefile', line 1)
-MAKEFILE_LIST :=  Makefile
-# makefile (from `Makefile', line 2)
-SRCS = $(wildcard ./srcs/*.c)
+VSCODE_PID = 42741
+# makefile
+MAKEFILE_LIST := 
 # environment
 rvm_ruby_mode = 
 # environment
 rvm_ruby_make = 
-# makefile (from `Makefile', line 3)
-OBJS = $(SRCS:.c=.o)
 # environment
 VSCODE_CWD = /Users/V/Documents/42/summer22/cube_versions
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.W8udmwD4dd/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.gb6g8zsSo8/Render
 # environment
 rvm_pretty_print_flag = 
 # environment
@@ -79,17 +72,17 @@ rvm_alias_expanded =
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.JZ0ZPGwkNy/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.NxyIfCw6IL/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-TTY = /dev/ttys001
+TTY = /dev/ttys000
 # environment
 FIG_ENV_VAR = 1
 # environment
 rvm_bin_path = /Users/V/.rvm/bin
 # environment
-PWD = /Users/V/Documents/42/summer22/cube_versions/boilerplate
+PWD = /Users/V/Documents/42/summer22/cube_versions
 # environment
 GEM_HOME = /Users/V/.rvm/gems/ruby-2.5.3
 # environment
@@ -105,7 +98,7 @@ MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /De
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/V/Library/Application Support/Code/CachedData/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9
+VSCODE_CODE_CACHE_PATH = /Users/V/Library/Application Support/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
 LOGNAME = V
 # environment
@@ -141,15 +134,14 @@ MAKE_VERSION := 3.81
 # environment
 USER = V
 # makefile
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := 
 # environment
-TERM_SESSION_ID = 0048825B-F3A9-421F-8673-BF0A54DCF05A
+TERM_SESSION_ID = 142AEE42-0204-4558-A724-54760EDF32F1
 # environment
 rvm_version = 1.29.10-next (master)
 # environment
 LESS = -R
 # automatic
- 
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
@@ -162,11 +154,9 @@ TMPDIR = /var/folders/dx/1mwgg8zn23964hxvr_jsm4vh0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/V/Library/Application Support/Code/1.69.0-main.sock
+VSCODE_IPC_HOOK = /Users/V/Library/Application Support/Code/1.69.2-main.sock
 # makefile
 MAKEFLAGS = Rrqp
-# makefile (from `Makefile', line 1)
-name = cube
 # environment
 MFLAGS = -Rrqp
 # automatic
@@ -226,7 +216,7 @@ MY_RUBY_HOME = /Users/V/.rvm/rubies/ruby-2.5.3
 # environment
 rvm_nightly_flag = 
 # variable set hash-table stats:
-# Load=106/1024=10%, Rehash=0, Collisions=8/134=6%
+# Load=102/1024=10%, Rehash=0, Collisions=5/123=4%
 
 # Pattern-specific Variable Values
 
@@ -234,10 +224,9 @@ rvm_nightly_flag =
 
 # Directories
 
-# . (device 16777220, inode 8635715213): 13 files, no impossibilities.
-# ./srcs (device 16777220, inode 8635715379): 12 files, no impossibilities.
+# . (device 16777220, inode 8635715164): 10 files, no impossibilities.
 
-# 25 files, no impossibilities in 2 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -245,34 +234,14 @@ rvm_nightly_flag =
 
 # Files
 
+# Not a target:
 all:
 #  Command-line target.
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
+#  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := all
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := 
-# automatic
-# | := 
-# automatic
-# < := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
+#  File has not been updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
-#  commands to execute (from `Makefile', line 7):
-	gcc $(SRCS) lmlx/libmlx.a -framework OpenGL -framework AppKit -o $(name)
-	
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .SUFFIXES:
@@ -282,10 +251,21 @@ all:
 
 # Not a target:
 Makefile:
+#  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-14 16:00:39
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+makefile:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
@@ -295,41 +275,31 @@ Makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-re: clean all
- 
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-run: all
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 10):
-	./$(name)
-	
-
-clean:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 13):
-	$(RM) $(OBJS) $(NAME)
-	
+# Not a target:
+GNUmakefile:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=7/1024=1%, Rehash=0, Collisions=0/24=0%
+# Load=6/1024=1%, Rehash=0, Collisions=0/17=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 1
-# # of strcache buffers: 1
-# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+# # of strings in strcache: 0
+# # of strcache buffers: 0
+# strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
+# strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Thu Jul 14 16:00:43 2022
+# Finished Make data base on Sat Jul 23 12:39:13 2022
 
  
+make: *** No rule to make target `all'.  Stop.
+

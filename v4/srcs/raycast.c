@@ -109,7 +109,7 @@ void	raycast_aftermath(void)
 		r->perp_walldist = (r->map_x - _game()->pos_x + (1 - r->step_x) / 2) / r->ray_dirx;
 	else
 		r->perp_walldist = (r->map_y - _game()->pos_y + (1 - r->step_y) / 2) / r->ray_diry;
-	cube_height = SDHEIGHT; //WTF IDK- IS it THE MAP->HEIGHT? MAP PENIS?
+	cube_height = SDHEIGHT; //the height in pixels of the screen
 	r->lineheight = (int)(cube_height / r->perp_walldist); 
 	r->draw_start = - r->lineheight / 2 + cube_height / 2; 
 	if (r->draw_start < 0)
