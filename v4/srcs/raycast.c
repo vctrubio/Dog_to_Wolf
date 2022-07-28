@@ -9,10 +9,8 @@ void	init_raycast(void)
 	game->dir_y = 0;
 	game->plane_x = 0;
 	game->plane_y = 0.66; //first-person shooter POV
-	//game-rot_speed IDK
-	//game->move_speed IDK
-	//game->time = 0;
-	//game->old_time = 0;
+	// game->rot_speed = ;
+	// game->move_speed = ;
 }
 
 void	raycast_first_loop(int x, int y)

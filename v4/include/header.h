@@ -92,8 +92,6 @@ typedef struct	s_game
 	double		dir_y;
 	double		plane_x;
 	double		plane_y;
-//	double		time; DONT possiblyneedthis
-//	double		old_time;
 	double		move_speed;
 	double		rot_speed;
 }				t_game;

@@ -6,7 +6,9 @@ Raycast into a 3D world
 move around
 
 ACCOMPLISH
-
+-minimap showing player position
+-TODO: raycast the map
 
 TO LOOK FOWARD TO
-v5 -minimap that shows rays
+-minimap that shows rays
+-enemies
