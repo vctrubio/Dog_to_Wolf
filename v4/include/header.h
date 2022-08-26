@@ -43,6 +43,7 @@ typedef struct	s_map
 	char	**map;
 	int	max_y;
 	int	max_x;
+	char	player;
 }				t_map;
 
 typedef struct	s_img

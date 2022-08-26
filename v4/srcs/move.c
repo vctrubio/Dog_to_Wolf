@@ -20,16 +20,18 @@ int	check_next_move(int y, int x)
 
 void	move_player(int y, int x)
 {
+	char	player;
 	int	pos_x;
 	int	pos_y;
 
+	player = _map()->player;
 	pos_x = _game()->pos_x;
 	pos_y = _game()->pos_y;
 	
 	if (check_next_move(pos_y + y, pos_x + x))
 	{
 		_map()->map[pos_y][pos_x] = '0';
-		_map()->map[pos_y +y][pos_x + x] = 'p';
+		_map()->map[pos_y +y][pos_x + x] = player;
 		update_map_pos(pos_x +x, pos_y + y);
 		printf("completed update  NEW POS (%f,%f)\n", _game()->pos_y, _game()->pos_x);
 	}

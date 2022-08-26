@@ -1,5 +1,6 @@
 #include "../include/header.h"
 
+//N,S,E and W will define the start direction
 void	find_p_on_map(void) 
 {
 	t_map	*map;
@@ -13,8 +14,12 @@ void	find_p_on_map(void)
 		x = -1;
 		while (map->map[y][++x])
 		{
-			if (map->map[y][x] == 'p')
-				update_map_pos(x, y);
+			if (map->map[y][x] == 'N' || map->map[y][x] == 'S' 
+				|| map->map[y][x] == 'E' || map->map[y][x] == 'W')
+				{
+					map->player = map->map[y][x];
+					update_map_pos(x, y);
+				}
 		}
 	}
 }
@@ -36,7 +41,7 @@ void	my_map_loop(void)
 		{
 			if (map->map[y][x] == '1')
 				fill_img_square(img, x, y, MYRED);
-			else if (map->map[y][x] == 'p')
+			else if (map->map[y][x] == map->player)
 				fill_img_square(img, x, y, MYGREEN);
 			else if (map->map[y][x] == '2')
 				fill_img_square(img, x, y, MYREDISH);
@@ -63,7 +68,7 @@ void	my_map_init(void)
 		{
 			if (map->map[y][x] == '1')
 				fill_img_square(img, x, y, MYRED);
-			else if (map->map[y][x] == 'p')
+			else if (map->map[y][x] == map->player)
 			{
 				fill_img_square(img, x, y, MYGREEN);
 				update_map_pos(x, y);
