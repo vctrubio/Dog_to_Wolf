@@ -1,8 +1,14 @@
 #ifndef HEADER_H
 # define	HEADER_H
 
-# include "../lmlx/mlx.h"
-# include "keys.h"
+//LINUX
+# include "../mlx_linux/mlx.h"
+# include <mlx.h>
+# include "keys_linux.h"
+
+//MAC
+/*# include "../lmlx/mlx.h"
+# include "keys.h"*/
 
 # include <fcntl.h>
 # include <math.h>

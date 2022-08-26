@@ -1,16 +1,16 @@
-#ifndef KEYS_H
-# define	KEYS_H
+#ifndef KEYS_LINUX_H
+# define	KEYS_LINUX_H
 
 
 //KEYCODE
-# define K_W	13
-# define K_A	0
-# define K_S	1
-# define K_D	2
-# define K_Q	12
-# define K_ESC	53
-# define K_R	15
-# define K_G	5
+# define K_W	119
+# define K_A	97
+# define K_S	115
+# define K_D	100
+# define K_Q	113
+# define K_ESC	65307
+# define K_R	114
+# define K_G	103
 
 
 //COLORCODE RBG
