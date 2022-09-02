@@ -34,3 +34,10 @@ t_raycast	*_raycast(void)
 
 	return (&r);
 }
+
+t_texture	*_texture(void)
+{
+	static	t_texture	t;
+
+	return (&t);
+}

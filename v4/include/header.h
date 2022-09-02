@@ -28,8 +28,8 @@
 
 typedef struct	s_list
 {
-	void			*content;
 	struct s_list	*next;
+	void			*content;
 }				t_list;
 
 typedef struct	s_window
@@ -40,10 +40,12 @@ typedef struct	s_window
 
 typedef struct	s_map
 {
+	int		max_y;
+	int		max_x;
 	char	**map;
-	int	max_y;
-	int	max_x;
 	char	player;
+	int		map_start_y;
+	int		map_start_x;
 }				t_map;
 
 typedef struct	s_img
@@ -58,6 +60,16 @@ typedef struct	s_img
 	int			width;
 	int			color;
 }				t_img;
+
+typedef struct	s_texture
+{
+	char	*floor;
+	char	*cealing;
+	char	*north_texture;
+	char	*south_texture;
+	char	*west_texture;
+	char	*east_texture;
+}				t_texture;
 
 typedef struct	s_raycast
 {
@@ -75,8 +87,8 @@ typedef struct	s_raycast
 	double	delta_disty;
 	double	perp_walldist;
 	
-	int		draw_start;
 	int		draw_end;
+	int		draw_start;
 	int		lineheight;
 
 	//idk about these tho
@@ -104,11 +116,12 @@ typedef struct	s_game
 }				t_game;
 
 //static (AKA GLOBAL_fts)
-t_game		*_game(void);
-t_window	*_window(void);
 t_key		*_key(void);
 t_map		*_map(void);
+t_game		*_game(void);
+t_window	*_window(void);
 t_raycast	*_raycast(void);
+t_texture	*_texture(void);
 //staticRTN
 t_window	*rtn_window(void);
 t_img		*rtn_img(int x, int y, t_window *w);
@@ -119,22 +132,22 @@ void		parse_map(char *file);
 //pixelManipulation
 void		mpp(t_img *img, int x, int y, int color);
 //draw
-void		fill_map_color(int color);
-void		fill_img_square(t_img *img, int cord_x, int cord_y, int color);
-void		draw_mini_game(void);
-void		draw_img_square(t_img *img, int color);
 void		draw_gridline(void); 
+void		draw_mini_game(void);
+void		fill_map_color(int color);
+void		draw_img_square(t_img *img, int color);
+void		fill_img_square(t_img *img, int cord_x, int cord_y, int color);
 //map 
-void		find_p_on_map(void);
 void		my_map_init(void);
 void		my_map_loop(void);
+void		find_p_on_map(void);
 //move
-void		update_map_pos(int x, int y);
 void		move_player(int y, int x);
+void		update_map_pos(int x, int y);
 int			check_next_move(int y, int x);
 //keys
-int			ft_key_hook(int keycode, t_window *w);
 void		key_listener(void);
+int			ft_key_hook(int keycode, t_window *w);
 //inits
 void		init_keys(void);
 //raycast
@@ -142,21 +155,24 @@ void		ft_raycast(void);
 void		init_raycast(void);
 
 //utilCalloc (EXTRAS/MYLIBFT)
-void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t n, size_t size);
+void	*ft_memset(void *s, int c, size_t n);
 //utilList
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_lstnew(void *content);
 int	ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 //utilStr
+int		ft_isdigit(int c);
 size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s);
 char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+int		ft_strnstr(const char *big, const char *little, size_t len);
 //utilGNL
 int		get_next_line(int fd, char **line);
 //utilPRINT
