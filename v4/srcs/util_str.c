@@ -108,6 +108,32 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return ((unsigned char)s1[index] - (unsigned char)s2[index]);
 }
 
+int		my_strnstr(char *str, int type)
+{
+	int	i;
+
+	i = 0;
+	if (type == 0)
+	{
+		while (str[i])
+		{
+			if (str[i] == '.')
+				return (i);
+			i++;
+		}
+	}
+	else
+	{
+		while (str[i])
+		{
+			if (ft_isdigit(str[i]))
+				return (i);
+			i++;
+		}
+	}
+	return (0);
+}
+
 int		ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	index;

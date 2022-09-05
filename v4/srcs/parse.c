@@ -76,66 +76,97 @@ int		find_x(char *str)
 	return (x);
 }
 
-void	texture_path(t_map *map, t_texture *texture, int y, int data)
+void	texture_path(t_texture *texture, char *str, int data)
 {
-	int	x;
-
-	x = 0;
 	if (data == 1)
-		texture->north_texture = ft_substr(map->map[y],
-			(int)ft_strnstr("./", map->map[y], ft_strlen(map->map[y])), ft_strlen(map->map[y]));
-	if (data == 2)
-		texture->south_texture = ft_substr(map->map[y],
-			(int)ft_strnstr("./", map->map[y], ft_strlen(map->map[y])), ft_strlen(map->map[y]));
-	if (data == 3)
-		texture->west_texture = ft_substr(map->map[y],
-			(int)ft_strnstr("./", map->map[y], ft_strlen(map->map[y])), ft_strlen(map->map[y]));
-	if (data == 4)
-		texture->east_texture = ft_substr(map->map[y],
-			(int)ft_strnstr("./", map->map[y], ft_strlen(map->map[y])), ft_strlen(map->map[y]));
-	if (data == 5)
-	{
-		x = find_x(map->map[y]);
-		texture->floor = ft_substr(map->map[y], x, ft_strlen(map->map[y]));
-	}
-	if (data == 6)
-	{
-		x = find_x(map->map[y]);
-		texture->cealing = ft_substr(map->map[y], x, ft_strlen(map->map[y]));
-	}
+		texture->north_texture = ft_substr(str, my_strnstr(str, 0), ft_strlen(str));
+	else if (data == 2)
+		texture->south_texture = ft_substr(str, my_strnstr(str, 0), ft_strlen(str));
+	else if (data == 3)
+		texture->west_texture = ft_substr(str, my_strnstr(str, 0), ft_strlen(str));
+	else if (data == 4)
+		texture->east_texture = ft_substr(str, my_strnstr(str, 0), ft_strlen(str));
+	else if (data == 5)
+		texture->floor = ft_substr(str, my_strnstr(str, 1), ft_strlen(str));
+	else if (data == 6)
+		texture->cealing = ft_substr(str, my_strnstr(str, 1), ft_strlen(str));
 }
 
-void	map_data()
+int		map_data_lvl1(t_texture *texture, char *str)
 {
-	int			y;
-	t_map		*map;
+	if (!ft_strncmp("NO", str, 2))
+	{
+		texture_path(texture, str, 1);
+		texture->texture_count++;
+	}
+	else if (!ft_strncmp("SO", str, 2))
+	{
+		texture_path(texture, str, 2);
+		texture->texture_count++;
+	}
+	else if (!ft_strncmp("WE", str, 2))
+	{
+		texture_path(texture, str, 3);
+		texture->texture_count++;
+	}
+	else if (!ft_strncmp("EA", str, 2))
+	{
+		texture_path(texture, str, 4);
+		texture->texture_count++;
+	}
+	else if (!ft_strncmp("F", str, 1))
+	{
+		texture_path(texture, str, 5);
+		texture->texture_count++;
+	}
+	else if (!ft_strncmp("C", str, 1))
+	{
+		texture_path(texture, str, 6);
+		texture->texture_count++;
+	}
+	return (0);
+}
+
+int		map_data(char *str)
+{
+	int			i;
+	char		*str_cp;
 	t_texture	*texture;
 
-	y = 0;
-	map = _map();
+	if (str[0] == '\0')
+		return (0);
+	i = 0;
 	texture = _texture();
-	while (map->map[y])
+	while (str[i] == ' ')
+		i++;
+	if (!str[i])
+		return (0);
+		printf("%s\n", str);
+	str_cp = ft_substr(str, i, ft_strlen(str));
+	if (!ft_strncmp("NO", str_cp, 2) || !ft_strncmp("SO", str_cp, 2)
+		|| !ft_strncmp("WE", str_cp, 2) || !ft_strncmp("EA", str_cp, 2)
+		|| !ft_strncmp("F", str_cp, 1) || !ft_strncmp("C", str_cp, 1))
 	{
-		if (!ft_strncmp("NO", map->map[y], 2))
-			texture_path(map, texture, y, 1);
-		else if (!ft_strncmp("SO", map->map[y], 2))
-			texture_path(map, texture, y, 2);
-		else if (!ft_strncmp("WE", map->map[y], 2))
-			texture_path(map, texture, y, 3);
-		else if (!ft_strncmp("EA", map->map[y], 2))
-			texture_path(map, texture, y, 4);
-		else if (!ft_strncmp("F", map->map[y], 1))
-			texture_path(map, texture, y, 5);
-		else if (!ft_strncmp("C", map->map[y], 1))
-			texture_path(map, texture, y, 6);
-		y++;
+		map_data_lvl1(texture, str_cp);
+		if (texture->texture_count < 6)
+		{
+			free(str_cp);
+			return (0);
+		}
 	}
+	else
+	{
+		printf("ERROR: Wrong argument\n");
+		exit(1);
+	}
+	free(str_cp);
 	printf("#########################################%s\n", texture->north_texture);
 	printf("#########################################%s\n", texture->south_texture);
 	printf("#########################################%s\n", texture->west_texture);
 	printf("#########################################%s\n", texture->east_texture);
 	printf("#########################################%s\n", texture->floor);
 	printf("#########################################%s\n", texture->cealing);
+	return (1);
 }
 
 void	init_map(t_list *lst)
@@ -144,17 +175,24 @@ void	init_map(t_list *lst)
 	int		i;
 	
 	map = _map();
-	map->max_y = ft_lstsize(lst);
-	map->max_x = ft_strlen(lst->content); //assuming its even
-	map->map = ft_calloc(map->max_y + 1, sizeof(char *));
 	i = 0;
+	while (!map_data((char*)lst->content))
+	{
+		lst = lst->next;
+		i++;
+	}
+	map->max_y = ft_lstsize(lst);
+	//map->max_x = ft_strlen(lst->content); //assuming its even
+	map->map = ft_calloc((map->max_y + 1), sizeof(char *));
+	
 	while (lst)
 	{
+		printf("Chega aqui %s\n", (char*)lst->content);
 		map->map[i++] = (char*)lst->content;
 		lst = lst->next;
 	}
 	map->map[i] = NULL;
-	map_data();
+	//map_data();
 	//map_verify();
 }
 

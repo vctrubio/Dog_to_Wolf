@@ -69,6 +69,8 @@ typedef struct	s_texture
 	char	*south_texture;
 	char	*west_texture;
 	char	*east_texture;
+	bool	N;
+	int		texture_count;
 }				t_texture;
 
 typedef struct	s_raycast
@@ -165,6 +167,7 @@ t_list	*ft_lstnew(void *content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 //utilStr
+int		my_strnstr(char *str, int type);
 int		ft_isdigit(int c);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s);
