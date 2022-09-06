@@ -69,8 +69,7 @@ typedef struct	s_texture
 	char	*south_texture;
 	char	*west_texture;
 	char	*east_texture;
-	bool	N;
-	int		texture_count;
+	//Texture checkers
 }				t_texture;
 
 typedef struct	s_raycast
@@ -128,6 +127,9 @@ t_texture	*_texture(void);
 t_window	*rtn_window(void);
 t_img		*rtn_img(int x, int y, t_window *w);
 
+//Divide map
+int			map_divide(t_list *lst);
+void		map_data_lvl2(t_texture *texture, char *str);
 //parse (PROGRAM)
 void		init_map(t_list *lst);
 void		parse_map(char *file);

@@ -38,8 +38,6 @@ t_raycast	*_raycast(void)
 t_texture	*_texture(void)
 {
 	static	t_texture	t;
-	if (!t.texture_count)
-		t.texture_count = 0;
-
+	
 	return (&t);
 }
