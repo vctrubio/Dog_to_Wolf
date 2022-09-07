@@ -1,69 +1,97 @@
 #include "../include/header.h"
 
-void	map_verify()
+
+
+int		find_next_line(t_map *map, int y, int x)
 {
-	t_map	*map;
+	if (x <= ft_strlen(map->map[y + 1]) && map->map[y][x] == '1'
+		&& map->map[y + 1][x] == '0' && map->map[y][x + 1] == '\0')
+	{
+		printf("ERROR: Map open (find_next_line 1) y = %d x = %d\n", y + 1, x);
+		exit(1);
+	}
+	else if (x <= ft_strlen(map->map[y + 1]) && map->map[y][x] == '1'
+	 	&& (map->map[y + 1][x] == ' ' || map->map[y + 1][x] == '0'))
+		return (0);
+	else if (x <= ft_strlen(map->map[y + 1]) && map->map[y][x] == '1'
+		&& map->map[y + 1][x] == '1')
+	{
+		printf("Y = %d  --  X = %d\n", y, x);
+		return (1);
+	}
+	else
+	{
+		if (x > ft_strlen(map->map[y + 1]) - 1)
+		{
+			printf("Despiste de erro y = %d x = %d\n", y, x);
+			return (0);
+		}
+		printf("ERROR: Map open (find_next_line 2) y = %d x = %d\n", y, x);
+		exit(1);
+	}
+}
+
+void	vertical_iterate(t_map *map, int *y, int x, int direction)
+{
+	if (direction == 0)
+	{	
+		while (find_next_line(map, *y, x))
+		{
+			(*y)++;
+			if ( *y == map->max_y - 1)
+				break;
+		}
+	}
+	else
+	{
+		while (find_next_line(map, *y, x))
+			(*y)--;
+	}
+}
+
+void	horizontal_iterate(t_map *map, int y, int *x)
+{
+	if (*x < ft_strlen(map->map[y + 1]) - 1)
+	{
+		while (!find_next_line(map, y, *x))
+		{
+			printf("Para aqui0\n");
+			(*x)++;
+		}
+	}
+	else if (*x > ft_strlen(map->map[y + 1]) - 1)
+	{
+		while (!find_next_line(map, y, *x))
+		{
+			printf("Para aqui1\n");
+			(*x)--;
+		}
+	}
+}
+
+void	map_verify_borders(t_map *map)
+{
 	int		y;
 	int		x;
 
 	y = 0;
 	x = 0;
-	map = _map();
-	while (map->map[0][x] == ' ')
-
+	while (map->map[y][x] == ' ')
+		x++;
+	if (map->map[y][x] == '1')
+		map->max_x = x++;
+	else
+	{
+		printf("ERROR: Map open\n");
+		exit(1);
+	}
+	printf("Max x %d and  x %d\n", map->max_x, x);
 	while (y < map->max_y - 1)
 	{
-		while (map->map[y][x])
-		{
-			if (map->map[y][x] != '1')
-			{
-				printf("E aqui que chega\n");
-				printf("ERROR: map open on row %d of line %d \n", x, y);
-				exit(1);
-			}
-			if (x == ft_strlen(map->map[y]) - 1)
-			{
-				printf("chega aqui0 -------------------------------------\n");
-				if (x > ft_strlen(map->map[y + 1]) - 1)
-				{
-					while (x != ft_strlen(map->map[y + 1]) - 1)
-					{
-						if (map->map[y][x] != '1')
-						{
-							printf("ERROR: map open on row %d of line %d \n", x, y);
-							exit(1);
-						}
-						x--;
-					}
-				}
-				else if (x < ft_strlen(map->map[y + 1]) - 1)
-				{
-					while (x != ft_strlen(map->map[y + 1]) - 1)
-					{
-						printf("chega aqui2 -------------------------------------\n");
-						if (map->map[y + 1][x] != '1')
-						{
-							printf("ERROR: map open on row %d of line %d \n", x, y);
-							exit(1);
-						}
-						x++;
-					}
-				}
-				y++;
-			}
-			x++;
-		}
-		x = ft_strlen(map->map[y]) - 1;
+		horizontal_iterate(map, y, &x);
+		vertical_iterate(map, &y, x, 0);
 	}
-	/*y = map->max_y - 1;
-	while (y > 0)
-	{
-		if (map->map[y][x] != '1')
-		{
-			printf("ERROR: map open on row %d of line %d \n", x, y);
-			exit(1);
-		}
-	}*/
+		
 }
 
 int		find_x(char *str)
@@ -86,8 +114,7 @@ void	init_map(t_list *lst)
 	
 	map = _map();
 	lst_counter = map_divide(lst);
-	map->max_y = ft_lstsize(lst);
-	map->max_x = ft_strlen(lst->content); //assuming its even
+	map->max_y = ft_lstsize(lst) - lst_counter - 1;
 	map->map = ft_calloc((map->max_y + 1), sizeof(char *));
 	i = 0;
 	while (lst)
@@ -101,7 +128,7 @@ void	init_map(t_list *lst)
 		}
 	}
 	map->map[i] = NULL;
-	//map_verify();
+	map_verify_borders(map);
 }
 
 void	parse_map(char *file)
