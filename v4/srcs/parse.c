@@ -1,20 +1,15 @@
 #include "../include/header.h"
 
-
-
-int		find_next_line(t_map *map, int y, int x)
+int		up_toRight(t_map *map, int y, int x)
 {
-	if (x <= ft_strlen(map->map[y + 1]) && map->map[y][x] == '1'
-		&& map->map[y + 1][x] == '0' && map->map[y][x + 1] == '\0')
+	if (map->map[y][x] != '1')
 	{
 		printf("ERROR: Map open (find_next_line 1) y = %d x = %d\n", y + 1, x);
 		exit(1);
 	}
-	else if (x <= ft_strlen(map->map[y + 1]) && map->map[y][x] == '1'
-	 	&& (map->map[y + 1][x] == ' ' || map->map[y + 1][x] == '0'))
+	else if (x <= ft_strlen(map->map[y + 1]) && map->map[y + 1][x] != '1')
 		return (0);
-	else if (x <= ft_strlen(map->map[y + 1]) && map->map[y][x] == '1'
-		&& map->map[y + 1][x] == '1')
+	else if (x <= ft_strlen(map->map[y + 1]) && map->map[y + 1][x] == '1')
 	{
 		printf("Y = %d  --  X = %d\n", y, x);
 		return (1);
@@ -22,20 +17,26 @@ int		find_next_line(t_map *map, int y, int x)
 	else
 	{
 		if (x > ft_strlen(map->map[y + 1]) - 1)
-		{
-			printf("Despiste de erro y = %d x = %d\n", y, x);
 			return (0);
-		}
 		printf("ERROR: Map open (find_next_line 2) y = %d x = %d\n", y, x);
 		exit(1);
 	}
 }
 
-void	vertical_iterate(t_map *map, int *y, int x, int direction)
+int		find_next_line(t_map *map, int y, int x, char *side)
 {
-	if (direction == 0)
+	if (!ft_strncmp(side, "U_R", 3))
+		return (up_toRight(map, y, x));	
+}
+
+void	vertical_iterate(int *y, int x, char *direction, char *side)
+{
+	t_map *map;
+
+	map = _map();
+	if (!ft_strncmp(direction, "DOWN", 4))
 	{	
-		while (find_next_line(map, *y, x))
+		while (find_next_line(map, *y, x, side))
 		{
 			(*y)++;
 			if ( *y == map->max_y - 1)
@@ -44,16 +45,19 @@ void	vertical_iterate(t_map *map, int *y, int x, int direction)
 	}
 	else
 	{
-		while (find_next_line(map, *y, x))
+		while (find_next_line(map, *y, x, side))
 			(*y)--;
 	}
 }
 
-void	horizontal_iterate(t_map *map, int y, int *x)
+void	horizontal_iterate(int y, int *x, char *side)
 {
-	if (*x < ft_strlen(map->map[y + 1]) - 1)
+	t_map *map;
+
+	map = _map();
+	if (*x <= ft_strlen(map->map[y + 1]) - 1)
 	{
-		while (!find_next_line(map, y, *x))
+		while (!find_next_line(map, y, *x, side))
 		{
 			printf("Para aqui0\n");
 			(*x)++;
@@ -61,7 +65,7 @@ void	horizontal_iterate(t_map *map, int y, int *x)
 	}
 	else if (*x > ft_strlen(map->map[y + 1]) - 1)
 	{
-		while (!find_next_line(map, y, *x))
+		while (!find_next_line(map, y, *x, side))
 		{
 			printf("Para aqui1\n");
 			(*x)--;
@@ -88,8 +92,8 @@ void	map_verify_borders(t_map *map)
 	printf("Max x %d and  x %d\n", map->max_x, x);
 	while (y < map->max_y - 1)
 	{
-		horizontal_iterate(map, y, &x);
-		vertical_iterate(map, &y, x, 0);
+		horizontal_iterate(y, &x, "U_R");
+		vertical_iterate(&y, x, "DOWN", "U_R");
 	}
 		
 }
