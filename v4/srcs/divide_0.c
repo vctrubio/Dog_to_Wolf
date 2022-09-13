@@ -49,13 +49,14 @@ int		map_begin(char *str)
 {
 	if (*str == '\0')
 		return (0);
-	while (*str == ' ')
-		*str++;
+	// while (*str == ' ')
+	// 	*str++;
 	if (!ft_isdigit(*str))
 	{
 		printf("ERROR: Wrong format\n");
 		exit(1);
 	}
+	return (1);
 }
 
 int		map_divide(t_list *lst)
