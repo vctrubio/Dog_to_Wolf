@@ -4,6 +4,7 @@
 		"header.h": "c",
 		"stdarg.h": "c",
 		"stdbool.h": "c",
-		"keys.h": "c"
+		"keys.h": "c",
+		"sstream": "c"
 	}
 }

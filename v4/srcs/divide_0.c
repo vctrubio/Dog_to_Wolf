@@ -47,16 +47,19 @@ int		map_data(char *str)
 
 int		map_begin(char *str)
 {
-	if (*str == '\0')
+	int i;
+
+	i = 0;
+	if (str[i] == '\0')
 		return (0);
-	// while (*str == ' ')
-	// 	*str++;
-	if (!ft_isdigit(*str))
+	while (str[i] == ' ')
+		i++;
+	if (!ft_isdigit(str[i]))
 	{
 		printf("ERROR: Wrong format\n");
 		exit(1);
 	}
-	return (1);
+	return (99);
 }
 
 int		map_divide(t_list *lst)
