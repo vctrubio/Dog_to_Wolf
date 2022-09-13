@@ -1,14 +1,14 @@
 #ifndef HEADER_H
 # define	HEADER_H
 
-//LINUX
-# include "../mlx_linux/mlx.h"
-# include <mlx.h>
-# include "keys_linux.h"
-
-//MAC
-/*# include "../lmlx/mlx.h"
-# include "keys.h"*/
+#ifndef __unix
+	# include "../lmlx/mlx.h"
+	# include "keys.h"
+#else
+	# include "../mlx_linux/mlx.h"
+	# include <mlx.h>
+	# include "keys_linux.h"
+#endif
 
 # include <fcntl.h>
 # include <math.h>
@@ -69,7 +69,6 @@ typedef struct	s_texture
 	char	*south_texture;
 	char	*west_texture;
 	char	*east_texture;
-	//Texture checkers
 }				t_texture;
 
 typedef struct	s_raycast

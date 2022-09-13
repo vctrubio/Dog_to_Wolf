@@ -4,6 +4,7 @@ void	update_map_pos(int x, int y)
 {
 	_game()->pos_x = x;
 	_game()->pos_y = y;
+	// Add the direction var 
 }
 
 int	check_next_move(int y, int x)

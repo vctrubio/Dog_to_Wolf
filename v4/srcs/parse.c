@@ -21,12 +21,14 @@ int		up_toRight(t_map *map, int y, int x)
 		printf("ERROR: Map open (find_next_line 2) y = %d x = %d\n", y, x);
 		exit(1);
 	}
+	return (0);
 }
 
 int		find_next_line(t_map *map, int y, int x, char *side)
 {
 	if (!ft_strncmp(side, "U_R", 3))
 		return (up_toRight(map, y, x));	
+	return (0);
 }
 
 void	vertical_iterate(int *y, int x, char *direction, char *side)
