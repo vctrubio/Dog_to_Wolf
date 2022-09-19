@@ -156,6 +156,8 @@ void		init_keys(void);
 //raycast
 void		ft_raycast(void);
 void		init_raycast(void);
+//exit
+void		ft_exit(void);
 
 //utilCalloc (EXTRAS/MYLIBFT)
 void	ft_bzero(void *s, size_t n);
