@@ -10,9 +10,7 @@
 //Heres the thing, they don't actually take up memory becasue they are not ptrs, but internal
 */
 
-void	ft_exit()
+void	ft_exit(void)
 {
-
-
 
 };
