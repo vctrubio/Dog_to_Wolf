@@ -7,8 +7,8 @@
  * _map
  * _raycast ...
  * _texture
+//Heres the thing, they don't actually take up memory becasue they are not ptrs, but internal
 */
-
 
 void	ft_exit()
 {
