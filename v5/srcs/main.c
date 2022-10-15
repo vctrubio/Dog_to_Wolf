@@ -7,7 +7,7 @@ minimap
 
 int	gameloop(void) 
 {
-	//ft_raycast();
+	// ft_raycast();
 	draw_mini_game();
 	return (0);
 }
@@ -36,7 +36,7 @@ int	main()
 
 	//RAYCAST
 	init_raycast();
-	ft_raycast(); //to put in the gameloop- but not working yet
+	// ft_raycast(); //to put in the gameloop- but not working yet
 
 	mlx_loop_hook(game->w->mlx, &gameloop, NULL);
 	key_listener();

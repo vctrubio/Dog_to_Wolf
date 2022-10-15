@@ -5,24 +5,24 @@ void	init_raycast(void)
 	t_game	*game;
 
 	game = _game();
-	if (_map()->player == 'N')
-		game->dir_x = 1 ; // general idea (looking down)
+	// if (_map()->player == 'N')
+		game->dir_x = -1 ; // general idea (looking down)
 	game->dir_y = 0;
 	game->plane_x = 0;
 	game->plane_y = 0.66; //first-person shooter POV
-	game->pos_x = _map()->map_start_x;
-	game->pos_y = _map()->map_start_y;
+	game->pos_x = _game()->pos_x;
+	game->pos_y = _game()->pos_y;
 	// game->rot_speed = ;
 	// game->move_speed = ;
 }
 
-void	raycast_first_loop(int x, int y)
+void	raycast_first_loop(int x, int y) //wallINIT
 {
 	t_raycast	*r;
 
 	r = _raycast();
-	r->hit = 0;
-	r->side = -1; //N,E,S,W
+	r->side = -1; //N,E,S,W CHANGE LATER
+
 	r->camera_x = 2 * x / (double)_map()->max_x - 1;
 	r->ray_dirx = _game()->dir_x + _game()->plane_x * r->camera_x;
 	r->ray_diry = _game()->dir_y + _game()->plane_y * r->camera_x;
@@ -30,9 +30,13 @@ void	raycast_first_loop(int x, int y)
 	r->map_y = _game()->pos_y;
 	r->delta_distx = fabs(1 / r->ray_dirx);
 	r->delta_disty = fabs(1 / r->ray_diry);
+	r->hit = 0;
 }
 
-void	raycast_second_loop(void)
+// i < 2 ? prinf(yes) : printf(no)
+
+
+void	raycast_second_loop(void) //rayWAlking
 {
 	t_raycast	*r;
 
@@ -74,10 +78,10 @@ void	raycast_calc_to_wall(void)
 			r->side_distx += r->delta_distx;
 			r->map_x += r->step_x;
 			r->side = 0;
-			//if (r->step_x == 1)
-			//	r->side = 0;
-			//else if (r->step_x == -1)
-			//	r->side = 1;
+			// if (r->step_x == 1)
+			// 	r->side = 0;
+			// else if (r->step_x == -1)
+			// 	r->side = 1;
 		}
 		else
 		{
@@ -130,6 +134,7 @@ void	ft_raycast(void)
 
 	y = 0;
 	x = -1;
+	//init floor()
 	printf("ft_raycast---\n");
 	while (++x <= _map()->max_x)
 	{
