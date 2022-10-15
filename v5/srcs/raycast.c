@@ -5,10 +5,13 @@ void	init_raycast(void)
 	t_game	*game;
 
 	game = _game();
-	game->dir_x = -1; // general idea (looking down)
+	if (_map()->player == 'N')
+		game->dir_x = 1 ; // general idea (looking down)
 	game->dir_y = 0;
 	game->plane_x = 0;
 	game->plane_y = 0.66; //first-person shooter POV
+	game->pos_x = _map()->map_start_x;
+	game->pos_y = _map()->map_start_y;
 	// game->rot_speed = ;
 	// game->move_speed = ;
 }
@@ -87,12 +90,7 @@ void	raycast_calc_to_wall(void)
 			//	r->side = 3;
 		}
 		if (m->map[(int)r->map_y][(int)r->map_x] == '1') //later != 0
-		{
-			printf("wallhit return at (y:%.f, x:%.f)\n", r->map_y, r->map_x);
 			r->hit = 1;
-		}
-		else
-			printf("NOhit return at (y:%.f, x:%.f)\n", r->map_y, r->map_x);
 	}
 }
 
@@ -135,7 +133,7 @@ void	ft_raycast(void)
 	printf("ft_raycast---\n");
 	while (++x <= _map()->max_x)
 	{
-		printf("test X = %d\n", x);
+		//printf("test X = %d\n", x);
 		raycast_first_loop(x, y);
 		raycast_second_loop();
 		raycast_calc_to_wall();

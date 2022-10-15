@@ -46,7 +46,7 @@ t_img	*_image()
 {
 	static	t_img	img;
 
-	img.check = 1000;
+	//img.check = 1000;
 
 	return (&img);
 }

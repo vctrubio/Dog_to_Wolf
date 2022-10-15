@@ -80,4 +80,4 @@ void	my_map_init(void)
 	draw_gridline();
 }
 // printf("eval %c at %d %d\n", map->map[y][x], y, x);
-// printf("\n");
+// printf("\n");1015 b

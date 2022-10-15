@@ -46,6 +46,8 @@ typedef struct	s_map
 	char	player;
 	int		map_start_y;
 	int		map_start_x;
+	bool	valid;
+	
 }				t_map;
 
 typedef struct	s_img
@@ -132,9 +134,6 @@ t_raycast	*_raycast(void);
 t_texture	*_texture(void);
 //staticRTN
 t_window	*rtn_window(void);
-t_img		*rtn_img(int x, int y, t_window *w);
-
-//Divide map
 int			map_divide(t_list *lst);
 void		map_data_lvl2(t_texture *texture, char *str);
 //parse (PROGRAM)
@@ -152,14 +151,7 @@ void		fill_img_square(t_img *img, int cord_x, int cord_y, int color);
 void		my_map_init(void);
 void		my_map_loop(void);
 void		find_p_on_map(void);
-//move
-void		move_player(int y, int x);
-void		update_map_pos(int x, int y);
-int			check_next_move(int y, int x);
-//keys
-void		key_listener(void);
-int			ft_key_hook(int keycode, t_window *w);
-//inits
+//movefreeFunction
 void		init_keys(void);
 //raycast
 void		ft_raycast(void);
@@ -194,5 +186,12 @@ void	print_map(void);
 //utilCONVERT
 int		unit_nb(int x);
 //XTRA
-void wnl_1(void); //test
+void	move_player(int y, int x);
+t_img	*rtn_img(int x, int y, t_window *w);
+void	key_listener(void);
+void	update_map_pos(int x, int y);
+
+//pase_map
+int pParse(char **);
+
 #endif

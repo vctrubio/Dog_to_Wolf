@@ -88,11 +88,11 @@ void	raycast_calc_to_wall(void)
 		}
 		if (m->map[(int)r->map_y][(int)r->map_x] == '1') //later != 0
 		{
-			printf("wallhit return at (y:%.f, x:%.f)\n", r->map_y, r->map_x);
+			//printf("wallhit return at (y:%.f, x:%.f)\n", r->map_y, r->map_x);
 			r->hit = 1;
 		}
 		else
-			printf("NOhit return at (y:%.f, x:%.f)\n", r->map_y, r->map_x);
+			printf("");
 	}
 }
 
@@ -135,7 +135,7 @@ void	ft_raycast(void)
 	printf("ft_raycast---\n");
 	while (++x <= _map()->max_x)
 	{
-		printf("test X = %d\n", x);
+		//printf("test X = %d\n", x);
 		raycast_first_loop(x, y);
 		raycast_second_loop();
 		raycast_calc_to_wall();
