@@ -43,7 +43,7 @@ void	draw_img_square(t_img *img, int color)
 	}
 }
 
-void	draw_mini_game(void)
+void	draw_mini_game()
 {
 	t_game	*game;
 

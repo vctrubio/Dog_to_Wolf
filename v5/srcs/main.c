@@ -7,7 +7,7 @@ minimap
 
 int	gameloop(void) 
 {
-	// ft_raycast();
+	ft_raycast();
 	draw_mini_game();
 	return (0);
 }
@@ -24,6 +24,7 @@ int	main()
 {
 	t_game		*game;
 	t_img		*game_img_map;
+	t_img		*game_img_bellow;
 
 	game = _game();
 	game->w = rtn_window();
@@ -31,7 +32,7 @@ int	main()
 
 	parse_map(NULL); //NULL because no argv is passed yet
 	print_map();
-	game_img_map = rtn_img(_map()->max_x, _map()->max_y, game->w);
+	game_img_map = rtn_img(WWIDTH, WHEIGHT, game->w);
 	game->img = game_img_map;
 
 	//RAYCAST

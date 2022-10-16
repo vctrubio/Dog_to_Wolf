@@ -46,7 +46,12 @@ t_img	*_image()
 {
 	static	t_img	img;
 
-	//img.check = 1000;
+	return (&img);
+}
+
+t_img	*_image_bellow()
+{
+	static	t_img	img;
 
 	return (&img);
 }

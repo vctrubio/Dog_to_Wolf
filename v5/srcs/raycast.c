@@ -135,7 +135,6 @@ void	ft_raycast(void)
 	y = 0;
 	x = -1;
 	//init floor()
-	printf("ft_raycast---\n");
 	while (++x <= _map()->max_x)
 	{
 		//printf("test X = %d\n", x);

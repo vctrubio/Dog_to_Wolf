@@ -6,7 +6,6 @@ void	destroyImage()
 
 	window = _window();
 	printf("DESTROY\n");
-	printf("int check %d\n", _image()->check);
 	mlx_destroy_image(window->mlx, _image()->img);
 	//free(window->window);
 }
@@ -78,7 +77,7 @@ void	parse_map(char *file)
 	t_list	*lst;
 
 	lst = NULL;
-	fd = open("./maps/new.ber", O_RDONLY);
+	fd = open("./maps/map.ber", O_RDONLY);
 	if (fd < 0)
 	{
 		printf("no map found\n");

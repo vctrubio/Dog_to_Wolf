@@ -61,7 +61,6 @@ typedef struct	s_img
 	int			height;
 	int			width;
 	int			color;
-	int			check;
 }				t_img;
 
 typedef struct	s_texture
@@ -119,6 +118,8 @@ typedef struct	s_game
 }				t_game;
 
 
+
+t_img	*_image_bellow();
 void	freeFunction();
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst);
