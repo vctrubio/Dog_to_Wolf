@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/trtp/code/42/summer22/DOGGYSTYLE/v6'
+gcc ./srcs/divide_0.c ./srcs/divide_1.c ./srcs/draw.c ./srcs/exit.c ./srcs/inits.c ./srcs/keys.c ./srcs/main.c ./srcs/map.c ./srcs/move.c ./srcs/parse.c ./srcs/parse_new.c ./srcs/pixel_manipulation.c ./srcs/raycast.c ./srcs/static.c ./srcs/static_rtn.c ./srcs/util_calloc.c ./srcs/util_convert.c ./srcs/util_gnl.c ./srcs/util_list.c ./srcs/util_print.c ./srcs/util_str.c lmlx/libmlx.a -framework OpenGL -framework AppKit -o cub
+make: Leaving directory `/Users/trtp/code/42/summer22/DOGGYSTYLE/v6'
+ 
