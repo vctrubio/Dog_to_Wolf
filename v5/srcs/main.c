@@ -7,8 +7,16 @@ minimap
 
 int	gameloop(void) 
 {
+	
 	ft_raycast();
-	draw_mini_game();
+
+
+
+
+
+
+	//draw_img_square(_game()->raycast, MYBLUE);
+	draw();
 	return (0);
 }
 
@@ -23,8 +31,8 @@ int	gameloop(void)
 int	main()
 {
 	t_game		*game;
-	t_img		*game_img_map;
-	t_img		*game_img_bellow;
+	t_img		*t2;
+
 
 	game = _game();
 	game->w = rtn_window();
@@ -32,12 +40,15 @@ int	main()
 
 	parse_map(NULL); //NULL because no argv is passed yet
 	print_map();
-	game_img_map = rtn_img(WWIDTH, WHEIGHT, game->w);
-	game->img = game_img_map;
+
+	//game->minimap = rtn_img(224*2, 224);
+
+	game->raycast = rtn_img(WWIDTH, WHEIGHT);
+
+	//draw_gridline(game->raycast);
 
 	//RAYCAST
 	init_raycast();
-	// ft_raycast(); //to put in the gameloop- but not working yet
 
 	mlx_loop_hook(game->w->mlx, &gameloop, NULL);
 	key_listener();

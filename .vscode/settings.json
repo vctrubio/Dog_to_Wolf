@@ -1,6 +1,9 @@
 {
 	"makefile.extensionOutputFolder": "./.vscode",
 	"files.associations": {
-		"header.h": "c"
+		"header.h": "c",
+		"chrono": "c",
+		"cmath": "c",
+		"complex": "c"
 	}
 }

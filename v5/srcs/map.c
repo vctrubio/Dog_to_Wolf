@@ -31,7 +31,7 @@ void	my_map_loop(void)
 	int	y;
 	int	x;
 
-	img = _game()->img;
+	img = _game()->minimap;
 	y = -1;
 	map = _map();
 	while (map->map[++y])
@@ -58,7 +58,7 @@ void	my_map_init(void)
 	int	y;
 	int	x;
 
-	img = _game()->img;
+	img = _game()->minimap;
 	y = -1;
 	map = _map();
 	while (map->map[++y])
@@ -77,7 +77,7 @@ void	my_map_init(void)
 				fill_img_square(img, x, y, MYREDISH);
 		}
 	}
-	draw_gridline();
+	draw_gridline(img);
 }
 // printf("eval %c at %d %d\n", map->map[y][x], y, x);
 // printf("\n");1015 b

@@ -21,8 +21,8 @@
 # define WHEIGHT 600 //WINDOW_HEIGHT
 # define WWIDTH 900
 
-# define SDHEIGHT 24 //STANDARD_HEIGHT
-# define SDWIDTH 24
+# define SDHEIGHT 42 //STANDARD_HEIGHT
+# define SDWIDTH 42
 # define BUFFER_SIZE 1
 # define M_UNIT 10  //MAP_UNIT- change it if you want, will resize the game
 
@@ -79,8 +79,8 @@ typedef struct	s_raycast
 	double	ray_dirx;
 	double	ray_diry;
 	
-	double	map_x;
-	double	map_y;
+	int		map_x;
+	int		map_y;
 	
 	double	side_distx;
 	double	side_disty;
@@ -93,20 +93,38 @@ typedef struct	s_raycast
 	int		draw_start;
 	int		lineheight;
 
+	int		text_y;
+
+
+
+
+
 	//idk about these tho
+	int		**matrix;
+	
 	double	wall_x;
 	int		text_x;
+	double	text_pos;
 
 	int	step_x;
 	int	step_y;
+	int step;
 	int	hit;
 	int	side;
+
+	int y;
+
+	//cpp raycast
+
+
+
 }		t_raycast;
 
 typedef struct	s_game
 {
 	t_window	*w;
-	t_img		*img;
+	t_img		*minimap;
+	t_img		*raycast;
 	double		pos_x;
 	double		pos_y;
 	double		dir_x;
@@ -115,6 +133,8 @@ typedef struct	s_game
 	double		plane_y;
 	double		move_speed;
 	double		rot_speed;
+	double 		time;
+	double		oldtime;
 }				t_game;
 
 
@@ -143,11 +163,11 @@ void		parse_map(char *file);
 //pixelManipulation
 void		mpp(t_img *img, int x, int y, int color);
 //draw
-void		draw_gridline(void); 
-void		draw_mini_game(void);
-void		fill_map_color(int color);
+void		draw_gridline(t_img *img); 
+void		draw(void);
 void		draw_img_square(t_img *img, int color);
 void		fill_img_square(t_img *img, int cord_x, int cord_y, int color);
+void		draw_raycast(void);
 //map 
 void		my_map_init(void);
 void		my_map_loop(void);
@@ -188,7 +208,7 @@ void	print_map(void);
 int		unit_nb(int x);
 //XTRA
 void	move_player(int y, int x);
-t_img	*rtn_img(int x, int y, t_window *w);
+t_img	*rtn_img(int x, int y);
 void	key_listener(void);
 void	update_map_pos(int x, int y);
 
