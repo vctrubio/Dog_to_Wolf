@@ -26,7 +26,8 @@ int	main()
 	parse_map(NULL); //NULL because no argv is passed yet
 	print_map();
 
-	//game->minimap = rtn_img(224*2, 224);
+	//GOOD
+
 
 	game->raycast = rtn_img(WWIDTH, WHEIGHT);
 

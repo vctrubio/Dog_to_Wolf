@@ -19,21 +19,68 @@
 # include <stdarg.h>
 
 # define WHEIGHT 800 //WINDOW_HEIGHT
-# define WWIDTH 800
+# define WWIDTH 1000
 
 # define SDHEIGHT 42 //STANDARD_HEIGHT
 # define SDWIDTH 42
 # define BUFFER_SIZE 1
 # define M_UNIT 10  //MAP_UNIT- change it if you want, will resize the game
 
+
+typedef struct	s_raycast
+{
+	double	camera_x;
+	double	ray_dirx;
+	double	ray_diry;
+	
+	int		map_x;
+	int		map_y;
+	
+	double	side_distx;
+	double	side_disty;
+	
+	double	delta_distx;
+	double	delta_disty;
+	double	perp_walldist;
+
+	int		draw_end;
+	int		draw_start;
+	int		lineheight;
+
+	int		text_y;
+
+	int		**matrix;
+	
+	double	wall_x;
+	int		text_x;
+	double	text_pos;
+
+	int	step_x;
+	int	step_y;
+	int step;
+	int	hit;
+	int	side;
+
+	int y;
+}		t_raycast;
+
+
 //*** HEADERS NEW PULGAMECANIC
-# define WIN_W		1000
 # define PI 3.14159265
 # define TILE_SIZE	64
 # define MAGNITUDE_ANGLE	3
 # define MAGNITUDE		10
+# define MAP_SCALE	16
+# define TILE_SIZE	64
+# define MAP_TILE_SIZE (int)round((double)TILE_SIZE / (double)MAP_SCALE) //!
 
-//*** HEADERS NEW STRUCT + FUNCTIONC
+
+typedef struct	s_list
+{
+	struct s_list	*next;
+	void			*content;
+}				t_list;
+
 typedef struct s_point
 {
 	double	x;
@@ -46,7 +93,7 @@ typedef struct s_vector
 	double	mag;
 }	t_vector;
 
-typedef struct s_pov //PLayers FOV
+typedef struct s_pov
 {
 	t_point		p;
 	int			dtp;
@@ -61,13 +108,6 @@ typedef struct s_pov //PLayers FOV
 	int			w_down;
 }		t_pov;
 
-typedef struct s_sprite //NO NEED
-{
-	double	x;
-	double	y;
-	int		texture;
-}				t_sprite;
-
 typedef struct s_ray
 {
 	int		angle;
@@ -77,17 +117,13 @@ typedef struct s_ray
 	t_point	end;
 }				t_ray;
 
-//
-typedef struct	s_list
-{
-	struct s_list	*next;
-	void			*content;
-}				t_list;
 
 typedef struct	s_window
 {
 	void	*mlx;
 	void	*window;
+	int		height;
+	int		width;
 }				t_window;
 
 typedef struct	s_map
@@ -95,11 +131,11 @@ typedef struct	s_map
 	int		max_y;
 	int		max_x;
 	char	**map;
+
 	char	player;
 	int		map_start_y;
 	int		map_start_x;
 	bool	valid;
-	
 }				t_map;
 
 typedef struct	s_img
@@ -125,61 +161,37 @@ typedef struct	s_texture
 	char	*east_texture;
 }				t_texture;
 
-typedef struct	s_raycast
-{
-	double	camera_x;
-	double	ray_dirx;
-	double	ray_diry;
-	
-	int		map_x;
-	int		map_y;
-	
-	double	side_distx;
-	double	side_disty;
-	
-	double	delta_distx;
-	double	delta_disty;
-	double	perp_walldist;
-
-	int		draw_end;
-	int		draw_start;
-	int		lineheight;
-
-	int		text_y;
-
-	//idk about these tho
-	int		**matrix;
-	
-	double	wall_x;
-	int		text_x;
-	double	text_pos;
-
-	int	step_x;
-	int	step_y;
-	int step;
-	int	hit;
-	int	side;
-
-	int y;
-}		t_raycast;
-
 typedef struct	s_game
 {
-	t_window	*w;
-	t_img		*minimap;
-	t_img		*raycast;
-	double		pos_x;
-	double		pos_y;
-	double		dir_x;
-	double		dir_y;
-	double		plane_x;
-	double		plane_y;
-	double		move_speed;
-	double		rot_speed;
-	double 		time;
-	double		oldtime;
+	t_window		*w;
+	t_img			*minimap;
+	t_img			*raycast;
+	struct s_pov	*pov;
+	int				floor;
+	int				ceiling;
+	int				width;
+	int				height;
+	char			**map;
+	t_texture			walls;
+	//
+        double          pos_x;
+        double          pos_y;
+        double          dir_x;
+        double          dir_y;
+        double          plane_x;
+        double          plane_y;
+        double          move_speed;
+        double          rot_speed;
+        double          time;
+        double          oldtime;
 }				t_game;
 
+//MATH
+int	r_angle(int angle);
+double	fcos(int angle);
+double	fsin(int angle);
+double	ftan(int angle);
+double	norm(t_game *game, int xx, int yy);
 
 
 void	freeFunction();
