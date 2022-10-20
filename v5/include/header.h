@@ -25,7 +25,7 @@
 # define SDWIDTH 42
 # define BUFFER_SIZE 1
 # define M_UNIT 10  //MAP_UNIT- change it if you want, will resize the game
-
+``
 typedef struct	s_list
 {
 	struct s_list	*next;
@@ -73,60 +73,13 @@ typedef struct	s_texture
 	char	*east_texture;
 }				t_texture;
 
-typedef struct	s_raycast
-{
-	double	camera_x;
-	double	ray_dirx;
-	double	ray_diry;
-	
-	int		map_x;
-	int		map_y;
-	
-	double	side_distx;
-	double	side_disty;
-	
-	double	delta_distx;
-	double	delta_disty;
-	double	perp_walldist;
-	
-	int		draw_end;
-	int		draw_start;
-	int		lineheight;
-
-	int		text_y;
-
-
-
-
-
-	//idk about these tho
-	int		**matrix;
-	
-	double	wall_x;
-	int		text_x;
-	double	text_pos;
-
-	int	step_x;
-	int	step_y;
-	int step;
-	int	hit;
-	int	side;
-
-	int y;
-
-	//cpp raycast
-
-
-
-}		t_raycast;
-
 typedef struct	s_game
 {
 	t_window	*w;
 	t_img		*minimap;
 	t_img		*raycast;
-	double		pos_x;
-	double		pos_y;
+	double		pos_x; //for minimap sake
+	double		pos_y; //minimap sake
 	double		dir_x;
 	double		dir_y;
 	double		plane_x;
@@ -214,5 +167,34 @@ void	update_map_pos(int x, int y);
 
 //pase_map
 int pParse(char **);
+
+typedef struct	s_raycast
+{
+	double	camera_x;
+	double	ray_dirx;
+	double	ray_diry;
+	int		map_x;
+	int		map_y;
+	double	side_distx;
+	double	side_disty;
+	double	delta_distx;
+	double	delta_disty;
+	double	perp_walldist;
+	int		draw_end;
+	int		draw_start;
+	int		lineheight;
+	int		text_y;
+	int		**matrix;
+	double	wall_x;
+	int		text_x;
+	double	text_pos;
+	int	step_x;
+	int	step_y;
+	int step;
+	int	hit;
+	int	side;
+	int y;
+
+}		t_raycast;
 
 #endif

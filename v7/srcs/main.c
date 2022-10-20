@@ -6,8 +6,6 @@ Raycast inpiration from PulgaMecanic the real Mecanic
 int	gameloop(void) 
 {
 	
-	ft_raycast();
-
 	//draw_img_square(_game()->raycast, MYBLUE);
 	draw();
 	return (0);
@@ -34,7 +32,7 @@ int	main()
 	//draw_gridline(game->raycast);
 
 	//RAYCAST
-	init_raycast();
+	// init_raycast();
 
 	mlx_loop_hook(game->w->mlx, &gameloop, NULL);
 	key_listener();

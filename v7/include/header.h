@@ -174,8 +174,8 @@ typedef struct	s_game
 	char			**map;
 	t_texture			walls;
 	//
-        double          pos_x;
-        double          pos_y;
+        double          pos_x; //minimap
+        double          pos_y; //minimap
         double          dir_x;
         double          dir_y;
         double          plane_x;
@@ -192,7 +192,6 @@ double	fcos(int angle);
 double	fsin(int angle);
 double	ftan(int angle);
 double	norm(t_game *game, int xx, int yy);
-
 
 void	freeFunction();
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
