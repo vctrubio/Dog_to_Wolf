@@ -3,7 +3,7 @@
 
 int	collide(t_game *game, t_point p, int angle)
 {	
-	return (edge_collide(conf, p) || wall_collide(conf, p, angle));
+	return (edge_collide(game, p) || wall_collide(game, p, angle));
 }
 
 
