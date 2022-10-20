@@ -1,8 +1,6 @@
 #include "../include/header.h"
-/* V4
-Raycasting
-map[yvector][xvector]
-minimap
+/* V7
+Raycast inpiration from PulgaMecanic the real Mecanic
 */
 
 int	gameloop(void) 
@@ -15,14 +13,6 @@ int	gameloop(void)
 	return (0);
 }
 
-/* 4 STEPS
-1. GAME INIT- MLX WINDOW ect.
-2. PARSE OF MAP
-3. RAYCAST
-4. LOOPS- MLX & KEYS
-*/
-
-// make run
 int	main()
 {
 	t_game		*game;

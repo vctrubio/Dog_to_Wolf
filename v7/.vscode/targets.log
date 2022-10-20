@@ -6,8 +6,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
 
-# Make data base, printed on Wed Oct 19 18:35:14 2022
+# Make data base, printed on Thu Oct 20 13:16:27 2022
 
 # Variables
 
@@ -26,7 +27,7 @@ LC_CTYPE = UTF-8
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/trtp/code/42/summer22/DOGGYSTYLE/v5
+CURDIR := /Users/trtp/code/42/summer22/DOGGYSTYLE/v7
 # makefile
 SHELL = /bin/sh
 # makefile (from `Makefile', line 4)
@@ -56,7 +57,7 @@ SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.KIcQX5lABO/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-PWD = /Users/trtp/code/42/summer22/DOGGYSTYLE/v5
+PWD = /Users/trtp/code/42/summer22/DOGGYSTYLE/v7
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
@@ -158,7 +159,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 49892
+VSCODE_PID = 57192
 # variable set hash-table stats:
 # Load=74/1024=7%, Rehash=0, Collisions=3/109=3%
 
@@ -168,8 +169,8 @@ VSCODE_PID = 49892
 
 # Directories
 
-# . (device 16777220, inode 3194902): 13 files, no impossibilities.
-# ./srcs (device 16777220, inode 3195021): 23 files, no impossibilities.
+# . (device 16777220, inode 3292561): 13 files, no impossibilities.
+# ./srcs (device 16777220, inode 3292684): 23 files, no impossibilities.
 
 # 36 files, no impossibilities in 2 directories.
 
@@ -217,7 +218,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-17 10:49:22
+#  Last modified 2022-10-20 13:16:16
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -263,6 +264,6 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Oct 19 18:35:14 2022
+# Finished Make data base on Thu Oct 20 13:16:27 2022
 
  
