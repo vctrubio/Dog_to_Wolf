@@ -26,6 +26,39 @@
 # define BUFFER_SIZE 1
 # define M_UNIT 10  //MAP_UNIT- change it if you want, will resize the game
 
+
+
+# define INT_MAX 2147483647
+# define PI 3.1416
+# define W_KEY 0x0077
+# define S_KEY 0x0073
+# define A_KEY 0x0061
+# define D_KEY 0x0064
+# define RIGHT_ARROW_KEY 0x00ff53
+# define LEFT_ARROW_KEY 0x00ff51
+# define M_KEY 0x006d
+# define ESC_KEY 0x00ff1b
+# define NORTH 4.71
+# define SOUTH 1.57
+# define EAST 0
+# define WEST PI
+# define HORZ 0
+# define VERT 1
+# define FALSE 0
+# define TRUE 1
+# define WALL_2D_COLOR 0x4d4d33
+# define RAYS_2D_COLOR 0xffff66
+# define FOV 1.1
+# define WALL_WIDTH 1
+# define MOVE_SPEED 25
+# define ROTAT_SPEED 0.10
+# define MAP2D_SCALE 0.1
+# define TILE_SIZE 64
+# define OFFSET 8
+
+
+
+
 typedef struct	s_list
 {
 	struct s_list	*next;
