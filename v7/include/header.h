@@ -18,14 +18,66 @@
 # include <stdbool.h>
 # include <stdarg.h>
 
-# define WHEIGHT 600 //WINDOW_HEIGHT
-# define WWIDTH 900
+# define WHEIGHT 800 //WINDOW_HEIGHT
+# define WWIDTH 800
 
 # define SDHEIGHT 42 //STANDARD_HEIGHT
 # define SDWIDTH 42
 # define BUFFER_SIZE 1
 # define M_UNIT 10  //MAP_UNIT- change it if you want, will resize the game
 
+//*** HEADERS NEW PULGAMECANIC
+# define WIN_W		1000
+# define PI 3.14159265
+# define TILE_SIZE	64
+# define MAGNITUDE_ANGLE	3
+# define MAGNITUDE		10
+
+//*** HEADERS NEW STRUCT + FUNCTIONC
+typedef struct s_point
+{
+	double	x;
+	double	y;
+}	t_point;
+
+typedef struct s_vector
+{
+	int		angle;
+	double	mag;
+}	t_vector;
+
+typedef struct s_pov
+{
+	t_point		p;
+	int			dtp;
+	int			center;
+	int			width;
+	int			height;
+	int			angle;
+	int			mag;
+	int			n_down;
+	int			s_down;
+	int			e_down;
+	int			w_down;
+}		t_pov;
+
+typedef struct s_sprite
+{
+	double	x;
+	double	y;
+	int		texture;
+}				t_sprite;
+
+typedef struct s_ray
+{
+	int		angle;
+	double	height;
+	double	dist_wall;
+	int		color;
+	t_point	end;
+}				t_ray;
+
+//
 typedef struct	s_list
 {
 	struct s_list	*next;
@@ -88,16 +140,12 @@ typedef struct	s_raycast
 	double	delta_distx;
 	double	delta_disty;
 	double	perp_walldist;
-	
+
 	int		draw_end;
 	int		draw_start;
 	int		lineheight;
 
 	int		text_y;
-
-
-
-
 
 	//idk about these tho
 	int		**matrix;
@@ -113,11 +161,6 @@ typedef struct	s_raycast
 	int	side;
 
 	int y;
-
-	//cpp raycast
-
-
-
 }		t_raycast;
 
 typedef struct	s_game

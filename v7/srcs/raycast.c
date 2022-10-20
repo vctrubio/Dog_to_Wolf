@@ -145,12 +145,11 @@ void	wall_text()
 	r->wall_x -= floor(r->wall_x);
 	r->text_x = (int)(r->wall_x * (double)(SDHEIGHT));
 
-
 	r->y = r->draw_start;
 	if (r->side == 0 && r->ray_dirx > 0) //make || statement
-		r->text_x == SDHEIGHT - r->text_x - 1;
+		r->text_x = SDHEIGHT - r->text_x - 1;
 	if (r->side == 1 && r->ray_diry < 0)
-		r->text_x == SDHEIGHT - r->text_x - 1;
+		r->text_x = SDHEIGHT - r->text_x - 1;
 
 	r->step = 1.0 * SDHEIGHT / r->lineheight;
 	r->text_pos = norm * r->step; // i dont have step
