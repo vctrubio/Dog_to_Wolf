@@ -64,7 +64,7 @@ double	ftan(int angle)
 
 double	norm(t_game *game, int xx, int yy)
 {
-	return (sqrt(pow((game->pov->p.x / MAP_SCALE) - (xx), 2)
-			+ pow((game->pov->p.y / MAP_SCALE) - (yy), 2))
+	return (sqrt(pow((_pov()->p.x / MAP_SCALE) - (xx), 2)
+			+ pow((_pov()->p.y / MAP_SCALE) - (yy), 2))
 		<= sqrt(MAP_TILE_SIZE));
 }

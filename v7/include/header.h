@@ -27,45 +27,6 @@
 # define BUFFER_SIZE 1
 # define M_UNIT 10  //MAP_UNIT- change it if you want, will resize the game
 
-
-typedef struct	s_raycast
-{
-	double	camera_x;
-	double	ray_dirx;
-	double	ray_diry;
-	
-	int		map_x;
-	int		map_y;
-	
-	double	side_distx;
-	double	side_disty;
-	
-	double	delta_distx;
-	double	delta_disty;
-	double	perp_walldist;
-
-	int		draw_end;
-	int		draw_start;
-	int		lineheight;
-
-	int		text_y;
-
-	int		**matrix;
-	
-	double	wall_x;
-	int		text_x;
-	double	text_pos;
-
-	int	step_x;
-	int	step_y;
-	int step;
-	int	hit;
-	int	side;
-
-	int y;
-}		t_raycast;
-
-
 //*** HEADERS NEW PULGAMECANIC
 # define PI 3.14159265
 # define TILE_SIZE	64
@@ -155,11 +116,17 @@ typedef struct	s_img
 typedef struct	s_texture
 {
 	char	*floor;
+	t_img	*floor_img;
 	char	*cealing;
+	t_img	*cealing_img;
 	char	*north_texture;
+	t_img	*north_img;
 	char	*south_texture;
+	t_img	*south_img;
 	char	*west_texture;
+	t_img	*east_img;
 	char	*east_texture;
+	t_img	*west_img;
 }				t_texture;
 
 typedef struct	s_game
@@ -167,13 +134,13 @@ typedef struct	s_game
 	t_window		*w;
 	t_img			*minimap;
 	t_img			*raycast;
-	struct s_pov	*pov;
+	// t_pov			*pov;
 	int				floor;
 	int				ceiling;
 	int				width;
 	int				height;
 	char			**map;
-	t_texture			walls;
+	t_texture		walls;
 	//
         double          pos_x; //minimap
         double          pos_y; //minimap
@@ -194,6 +161,7 @@ double	fsin(int angle);
 double	ftan(int angle);
 double	norm(t_game *game, int xx, int yy);
 
+
 double	nearest_horizontal(t_game *game, int a);
 double	nearest_vertical(t_game *game, int a);
 double	magic_distance(t_game *game, int ray_angle);
@@ -202,7 +170,38 @@ t_point	horizontal_step(int a);
 t_point	vertical_step(int a);
 t_point	p(double x, double y);
 t_point	add_point(t_point p1, t_point p2);
-int	collide(t_game *game, t_point p, int angle);
+int		collide(t_game *game, t_point p, int angle);
+
+//new image
+void	init_img_game(t_game *game);
+t_img	*new_image(t_window *win, int height, int width);
+
+//raycast
+
+void	my_raycast(t_game *game);
+
+
+//img tex
+void	init_walls(t_game *game, t_window *win);
+
+t_img			*correct_texture(t_game *game, int i);
+unsigned int	texture_pixel_color(t_game *game, t_point p, t_ray ray, t_img *texture);
+unsigned int	get_texture_color(t_img *texture, int pixel_x, int pixel_y);
+
+//img color
+int	shade(double distance, int color, t_game *game);
+int	gen_trgb(int opacity, int red, int green, int blue);
+int	get_r(int trgb);
+int	get_g(int trgb);
+int	get_b(int trgb);
+int	get_opacity(int trgb);
+
+//initGame
+void	init_game(void);
+
+
+
+
 
 ///
 void	freeFunction();
@@ -216,7 +215,7 @@ t_map		*_map(void);
 t_game		*_game(void);
 t_img		*_image(void);
 t_window	*_window(void);
-t_raycast	*_raycast(void);
+t_pov		*_pov();
 t_texture	*_texture(void);
 //staticRTN
 t_window	*rtn_window(void);
@@ -232,17 +231,13 @@ void		draw_gridline(t_img *img);
 void		draw(void);
 void		draw_img_square(t_img *img, int color);
 void		fill_img_square(t_img *img, int cord_x, int cord_y, int color);
-void		draw_raycast(void);
 //map 
 void		my_map_init(void);
 void		my_map_loop(void);
 void		find_p_on_map(void);
 //movefreeFunction
 void		init_keys(void);
-//raycast
-void		ft_raycast(void);
-void		init_raycast(void);
-//exit
+
 void		ft_exit(void);
 
 //utilCalloc (EXTRAS/MYLIBFT)

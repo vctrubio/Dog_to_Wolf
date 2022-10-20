@@ -7,9 +7,12 @@ int	gameloop(void)
 {
 	
 	//draw_img_square(_game()->raycast, MYBLUE);
-	draw();
+	// draw();
 	return (0);
 }
+
+
+
 
 int	main()
 {
@@ -22,17 +25,19 @@ int	main()
 	game->w->window = mlx_new_window(game->w->mlx, WWIDTH, WHEIGHT, "Dog_to_Wolf");
 
 	parse_map(NULL); //NULL because no argv is passed yet
-	print_map();
+	// print_map();
 
-	//GOOD
+	
+	//GOOD we init window, game, texture, map
+	//!=  t_ray, s_pov
+	init_game();
+
+	printf("POV WIDTH%d. \n", _pov()->width);
+
+	init_img_game(game);
 
 
-	game->raycast = rtn_img(WWIDTH, WHEIGHT);
 
-	//draw_gridline(game->raycast);
-
-	//RAYCAST
-	// init_raycast();
 
 	mlx_loop_hook(game->w->mlx, &gameloop, NULL);
 	key_listener();

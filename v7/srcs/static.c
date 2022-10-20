@@ -28,12 +28,6 @@ t_map	*_map(void)
 	return (&m);
 }
 
-t_raycast	*_raycast(void)
-{
-	static	t_raycast	r;
-
-	return (&r);
-}
 
 t_texture	*_texture(void)
 {
@@ -47,4 +41,11 @@ t_img	*_image()
 	static	t_img	img;
 
 	return (&img);
+}
+
+t_pov	*_pov()
+{
+	static t_pov	pov;
+
+	return (&pov);
 }
