@@ -202,6 +202,7 @@ t_point	horizontal_step(int a);
 t_point	vertical_step(int a);
 t_point	p(double x, double y);
 t_point	add_point(t_point p1, t_point p2);
+int	collide(t_game *game, t_point p, int angle);
 
 ///
 void	freeFunction();
