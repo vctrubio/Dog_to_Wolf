@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdbool.h>
 # include <stdarg.h>
+# include <limits.h>
 
 # define WHEIGHT 800 //WINDOW_HEIGHT
 # define WWIDTH 1000
@@ -193,6 +194,16 @@ double	fsin(int angle);
 double	ftan(int angle);
 double	norm(t_game *game, int xx, int yy);
 
+double	nearest_horizontal(t_game *game, int a);
+double	nearest_vertical(t_game *game, int a);
+double	magic_distance(t_game *game, int ray_angle);
+
+t_point	horizontal_step(int a);
+t_point	vertical_step(int a);
+t_point	p(double x, double y);
+t_point	add_point(t_point p1, t_point p2);
+
+///
 void	freeFunction();
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst);

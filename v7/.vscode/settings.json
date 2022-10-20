@@ -5,6 +5,7 @@
 		"stdarg.h": "c",
 		"stdbool.h": "c",
 		"keys.h": "c",
-		"sstream": "c"
+		"sstream": "c",
+		"math.h": "c"
 	}
 }
