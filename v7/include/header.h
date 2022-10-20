@@ -46,7 +46,7 @@ typedef struct s_vector
 	double	mag;
 }	t_vector;
 
-typedef struct s_pov
+typedef struct s_pov //PLayers FOV
 {
 	t_point		p;
 	int			dtp;
@@ -61,7 +61,7 @@ typedef struct s_pov
 	int			w_down;
 }		t_pov;
 
-typedef struct s_sprite
+typedef struct s_sprite //NO NEED
 {
 	double	x;
 	double	y;
