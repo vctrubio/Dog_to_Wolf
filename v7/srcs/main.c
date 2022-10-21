@@ -5,13 +5,8 @@ Raycast inpiration from PulgaMecanic the real Mecanic
 
 int	gameloop(void) 
 {
-	
-	//draw_img_square(_game()->raycast, MYBLUE);
-	// draw();
 	return (0);
 }
-
-
 
 
 int	main()
@@ -24,7 +19,7 @@ int	main()
 	game->w = rtn_window();
 	game->w->window = mlx_new_window(game->w->mlx, WWIDTH, WHEIGHT, "Dog_to_Wolf");
 
-	parse_map(NULL); //NULL because no argv is passed yet
+	parse_map("./maps/map.ber");
 	// print_map();
 
 	
@@ -35,7 +30,6 @@ int	main()
 	printf("POV WIDTH%d. \n", _pov()->width);
 
 	init_img_game(game);
-
 
 
 

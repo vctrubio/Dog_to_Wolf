@@ -13,7 +13,7 @@ int	test_key_code(int keycode)
 		move_player(1, 0);
 	if (keycode == K_W)
 		move_player(-1, 0);
-	print_map();
+	// print_map();
 	return (keycode);
 }
 

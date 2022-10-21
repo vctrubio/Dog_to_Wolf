@@ -1,6 +1,5 @@
 #include "../include/header.h"
 
-
 static void	draw_line(t_game *game, t_ray ray, int col)
 {
 	int		i;
@@ -18,7 +17,6 @@ static void	draw_line(t_game *game, t_ray ray, int col)
 		if (i >= _pov()->center - (ray.height / 2)
 			&& i <= _pov()->center + (ray.height / 2))
 		{
-			// printf("YESSSSSS\n");
 			ray.color = texture_pixel_color(game,
 					p(x_texture_position, (double)i), ray, tex);
 			ray.color = shade(ray.dist_wall, ray.color, game);
@@ -84,7 +82,7 @@ double	calc_dist(t_game *game, int ray_angle)
 	double	ph;
 	double	pv;
 
-	printf("ANGEL-%d\n", _pov()->angle);
+	// printf("ANGEL-%d\n", _pov()->angle);
 	a = _pov()->angle + ray_angle;
 	if (a < 0)
 	    a = r_angle(360) + a;
@@ -107,14 +105,12 @@ void	my_raycast(t_game *game)
 	pov = _pov();
 	ray.angle = r_angle(30);
 	column = 0;
-    
-    t_texture *text = _texture();
+	
     // printf("PRINT TEXT OF Wall|\n");
+    // t_texture *text = _texture();
     // printf("%s---lll\n", text->north_texture);
 	// printf("ANGEL-%d\n", pov->angle);
     
-
-
 	while (ray.angle > -r_angle(30) && column < WWIDTH)
 	{
 		ray.dist_wall = calc_dist(game, ray.angle);

@@ -77,7 +77,7 @@ void	parse_map(char *file)
 	t_list	*lst;
 
 	lst = NULL;
-	fd = open("./maps/map.ber", O_RDONLY);
+	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{
 		printf("no map found\n");
