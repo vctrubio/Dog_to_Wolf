@@ -14,9 +14,9 @@ t_img	*correct_texture(t_game *game, int i)
 
 unsigned int	get_texture_color(t_img *texture, int pixel_x, int pixel_y)
 {
-	return MYRED;
-	return (*(unsigned int *)((texture->addr
-			+ (pixel_y * texture->line_length) + (pixel_x * texture->bbp / 8))));
+	// printf("print text addres %s\n", texture->addr);
+	return MYGREEN;
+	return (*(unsigned int *)((texture->addr + (pixel_y * texture->line_length) + (pixel_x * texture->bbp / 8))));
 }
 
 unsigned int	texture_pixel_color(t_game *game, t_point p, t_ray ray,

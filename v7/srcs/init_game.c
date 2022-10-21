@@ -35,7 +35,7 @@ void    init_game(void)
 		j = -1;
 		while (_map()->map[i][++j])
 		{
-            printf("%c-\n", _map()->map[i][j]);
+            // printf("%c-\n", _map()->map[i][j]);
 			if (ft_strchr("NSWE", _map()->map[i][j]))
 			{
 				choose_angle(game, _map()->map[i][j]);

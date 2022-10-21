@@ -7,6 +7,9 @@ static void	draw_line(t_game *game, t_ray ray, int col)
 	t_img	*tex;
 
 	tex = correct_texture(game, ray.color);
+	// we dont have correct text
+	//printf("width -%s-%d\n", tex->addr, tex->width);
+
 	i = -1;
 	if (ray.color == 1 || ray.color == 2)
 		x_texture_position = (int)(floor(ray.end.x + 1)) % TILE_SIZE;
@@ -17,9 +20,8 @@ static void	draw_line(t_game *game, t_ray ray, int col)
 		if (i >= _pov()->center - (ray.height / 2)
 			&& i <= _pov()->center + (ray.height / 2))
 		{
-			ray.color = texture_pixel_color(game,
-					p(x_texture_position, (double)i), ray, tex);
-			ray.color = shade(ray.dist_wall, ray.color, game);
+			ray.color = texture_pixel_color(game, p(x_texture_position, (double)i), ray, tex); //BUG
+			// ray.color = shade(ray.dist_wall, ray.color, game);
 			mpp(game->raycast, col, i, ray.color);
 		}
 		else if (i < _pov()->center)
@@ -120,7 +122,7 @@ void	my_raycast(t_game *game)
 				pov->angle + ray.angle, game);
 		ray.height = ray.dist_wall * fcos(abs(ray.angle));
 		ray.height = ((double)TILE_SIZE / ray.height) * pov->dtp;
-		draw_line(game, ray, column);
+		//draw_line(game, ray, column);
 		column++;
 		ray.angle--;
 	}

@@ -7,9 +7,8 @@ void    paint_window(void)
     game = _game();
 	t_img   *raycast;
 
+	raycast = new_image(game->raycast->w, game->raycast->height, game->raycast->width);
 	printf("BOOMBOOMBOOM\n");
-	raycast = new_image(game->raycast->w, game->raycast->height,
-			game->raycast->width);
 	mlx_destroy_image(game->raycast->w->mlx, game->raycast->img);
 	free(game->raycast);
 	game->raycast = raycast;
