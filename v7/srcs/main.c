@@ -43,6 +43,10 @@ int	main()
 	t_game		*game;
 	t_img		*t2;
 
+	horizontal_step(0);
+	printf("HStep(120): %f\n", horizontal_step(720).x);
+	printf("HStep(60): %f\n", horizontal_step(360).x);
+	printf("HStep(90): %f\n", horizontal_step(540).x);
 
 	game = _game();
 	game->w = rtn_window();
@@ -58,12 +62,9 @@ int	main()
 	init_game();
 	init_img_game(game);
 
-	printf("POV WIDTH%d. \n", _pov()->width);
+	//printf("POV WIDTH%d. \n", _pov()->width);
 
-
-	mlx_loop_hook(game->w->mlx, &gameloop, _pov());
-
-
+	//mlx_loop_hook(game->w->mlx, &gameloop, _pov());
 	key_listener();
 	mlx_loop(game->w->mlx);
 	return (0);

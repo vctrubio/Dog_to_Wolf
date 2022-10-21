@@ -10,6 +10,8 @@ t_window	*rtn_window(void)
 	return (window);
 }
 
+
+
 t_img	*rtn_img(int x, int y)
 {
 	t_img	*img;

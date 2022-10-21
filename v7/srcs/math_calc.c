@@ -48,20 +48,27 @@ t_point	add_point(t_point p1, t_point p2)
 
 t_point	horizontal_step(int a)
 {
-	static t_point	h_step[360 * WWIDTH / 60];
+	static t_point	h_step[WWIDTH * 6];
 	int				i;
 
 	if (h_step[0].x > 0 || h_step[0].y > 0)
 		return (h_step[a]);
+	//printf("INITIALIZING!!!!!!!!!!!\n\n\n\n");
 	i = 0;
 	while (i < (int)r_angle(360))
 	{
-		if (i < (int)r_angle(180))
+		if (i < (int)r_angle(180)) {
 			h_step[i] = p(fabs(TILE_SIZE / ftan(i)), TILE_SIZE * -1);
+			h_step[i].y = -64;
+		}
 		else
+		{
 			h_step[i] = p(fabs(TILE_SIZE / ftan(i)), TILE_SIZE);
+			h_step[i].y = 64;
+		}
 		if (i > r_angle(90) && i < r_angle(270))
 			h_step[i].x *= -1;
+		//printf("COS(%d -> %d) point(%f, %f)\n", i / 6, i, h_step[i].x, h_step[i].y);
 		i++;
 	}
 	return (h_step[a]);
@@ -95,6 +102,7 @@ double	nearest_horizontal(t_game *game, int a)
 	t_point	intersection;
 	t_point	p_const;
 
+	printf("....%f\n", _pov()->p.y);
 	if (a < r_angle(180))
 		intersection.y = floor(_pov()->p.y / TILE_SIZE) * TILE_SIZE - 1;
 	else
