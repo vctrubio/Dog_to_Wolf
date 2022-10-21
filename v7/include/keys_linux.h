@@ -10,6 +10,7 @@
 # define K_Q	113
 # define K_ESC	65307
 # define K_R	114
+# define K_L	115 //i
 # define K_G	103
 
 

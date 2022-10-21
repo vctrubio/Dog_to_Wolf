@@ -79,6 +79,7 @@ typedef struct s_ray
 	t_point	end;
 }				t_ray;
 
+#include "../include/header.h"
 
 typedef struct	s_window
 {
@@ -177,7 +178,7 @@ void	init_img_game(t_game *game);
 t_img	*new_image(t_window *win, int height, int width);
 
 //raycast
-
+void	paint_window(void);
 void	my_raycast(t_game *game);
 
 
@@ -195,6 +196,12 @@ int	get_r(int trgb);
 int	get_g(int trgb);
 int	get_b(int trgb);
 int	get_opacity(int trgb);
+
+//ifind
+void	move(int key_code, t_pov *pov);
+void	rotate(int key_code, t_pov *pov);
+t_point		add_vec(t_point p, t_vector v);
+t_vector	vec(int angle, double mag);
 
 //initGame
 void	init_game(void);
@@ -234,6 +241,9 @@ void		fill_img_square(t_img *img, int cord_x, int cord_y, int color);
 //map 
 void		my_map_init(void);
 void		my_map_loop(void);
+
+
+
 void		find_p_on_map(void);
 //movefreeFunction
 void		init_keys(void);
