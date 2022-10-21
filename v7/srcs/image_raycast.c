@@ -122,7 +122,7 @@ void	my_raycast(t_game *game)
 				pov->angle + ray.angle, game);
 		ray.height = ray.dist_wall * fcos(abs(ray.angle));
 		ray.height = ((double)TILE_SIZE / ray.height) * pov->dtp;
-		//draw_line(game, ray, column);
+		draw_line(game, ray, column);
 		column++;
 		ray.angle--;
 	}
