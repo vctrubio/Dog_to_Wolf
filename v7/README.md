@@ -1,24 +1,75 @@
-Cube3d V4.
+NAME		= cub3D
 
-Added a char variable to the s_map struct to identify the character used to define the player and the position (Added it to the map struct in so it would not demand more inicializations on the map parsing functions)
+MSG		= make.msg
 
-Still working on parsing:
+INC		= /usr/include
 
-I realized that before verifiyng that the map is closed, I should extract the other informations from the map file, so that I know exactly where to start reading the map. Still working on it, some verifications are still needed but it's almost done.
+INCFT		= libft/includes
 
-In parse.c added a map_verify function to verify the borders of the map. I'ts still under construction, it already works for the upper, right side and down side.
+INCFTLIB	= libft
+
+# Commented for home dev (uncomment before commit)
+# INCLIB		=$(INC)/../lib
+INCLIB		= .
+
+UNAME		:= $(shell uname)
+
+CFLAGS		= -Wall -Werror -Wextra -I$(INC) -O3 -I${INCFT} -Iincludes -g
 
 
+LFLAGS		= -L$(INCLIB)-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -fsanitize=address -o $(name) #-fsanitize=address -L${INCFTLIB} -lft
 
-GOAL
-To parse a map, with player at position p
-Raycast into a 3D world
-move around
+SRC		= $(wildcard src/*.c src/*/*.c)
 
-ACCOMPLISH
--minimap showing player position
--TODO: raycast the map
+OBJ		= $(SRC:%.c=%.o)
 
-TO LOOK FOWARD TO
--minimap that shows rays
--enemies
+RM		= rm -f
+
+ifeq ($(UNAME), Darwin)
+	CC = gcc
+	LFLAGS = -lmlx -L$(INCLIB) -framework OpenGL -framework AppKit -L${INCFTLIB} -lft
+else ifeq ($(UNAME), FreeBSD)
+	CC = clang
+else
+	CC	= gcc
+	CFLAGS += -D LINUX
+	LFLAGS += -lbsd
+endif
+
+all: $(NAME)
+
+$(NAME): runlibft $(OBJ)
+	$(CC) -o $(NAME) $(OBJ) $(LFLAGS)
+
+show:
+	@printf "UNAME		: $(UNAME)\n"
+	@printf "NAME  		: $(NAME)\n"
+	@printf "CC		: $(CC)\n"
+	@printf "CFLAGS		: $(CFLAGS)\n"
+	@printf "LFLAGS		: $(LFLAGS)\n"
+	@printf "SRC		: $(SRC)\n"
+	@printf "OBJ		: $(OBJ)\n"
+
+runlibft:
+	@make -C libft --no-print-directory
+
+norm:
+	norminette -R CheckForbiddenSourceHeader ${SRC}
+	norminette -R CheckDefine includes/fractol.h includes/config.h
+
+info:
+	@make -f $(MSG) msglibft --no-print-directory
+	@make -f $(MSG) msgft_mlx --no-print-directory
+
+clean:
+	${RM} $(OBJ)
+
+fclean:
+	@make -C libft fclean --no-print-directory
+	@make clean
+	${RM} ${NAME}
+
+run: all
+	./cub3D tools/maps/map1.cub | cat -e  > trace.txt
+
+re: fclean all info
