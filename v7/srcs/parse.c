@@ -36,13 +36,16 @@ void	init_map(t_list *lst)
 	t_map	*map;
 	t_list	*current;
 	int		lst_counter;
-	
+	int		height = 0;
+	int		width = 0;
+
 	map = _map();
 	map->valid = true;
 	lst_counter = map_divide(lst);
 	map->max_y = ft_lstsize(lst) - lst_counter - 1;
 	map->map = ft_calloc((map->max_y + 1), sizeof(char *));
 	i = 0;
+	height = map->max_y;
 	while (lst)
 	{
 		if (lst_counter-- > -1)
@@ -55,7 +58,9 @@ void	init_map(t_list *lst)
 		else
 		{
 			current = lst;
-			map->map[i++] = (char*)lst->content;
+			map->map[i++] = (char*)lst->content; // check for no trailing spaces at the end of map
+			if (ft_strlen((char*)lst->content) > width)
+				width = ft_strlen((char*)lst->content);
 			lst = lst->next;
 			free(current);
 		}
@@ -68,6 +73,15 @@ void	init_map(t_list *lst)
 		printf("ERROR\n");
 		freeFunction();
 	}
+	else
+	{
+		_game()->height = height;
+		_game()->width = width;
+		map->max_x = width;
+		printf("VALID MAP %d %d \n", _game()->height, _game()->width);
+	}
+	// printf("MAP MAX_Y = %d MAX_X \n\n", map->max_y, map->max_x);
+
 }
 
 void	parse_map(char *file)

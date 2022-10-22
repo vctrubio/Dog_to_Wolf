@@ -124,13 +124,13 @@ void	my_raycast(t_game *game)
 	{
 		ray.dist_wall = calc_dist(game, ray.angle);
 		printf("Distance: %d\n", ray.dist_wall);
-		ray.end = add_vec(pov->p,
-				vec((ray.angle + pov->angle), ray.dist_wall));
-		ray.color = set_wall_color(ray.dist_wall,
-				pov->angle + ray.angle, game);
-		ray.height = ray.dist_wall * fcos(abs(ray.angle));
-		ray.height = ((double)TILE_SIZE / ray.height) * pov->dtp;
-		draw_line(game, ray, column);
+		// ray.end = add_vec(pov->p,
+		// 		vec((ray.angle + pov->angle), ray.dist_wall));
+		// ray.color = set_wall_color(ray.dist_wall,
+		// 		pov->angle + ray.angle, game);
+		// ray.height = ray.dist_wall * fcos(abs(ray.angle));
+		// ray.height = ((double)TILE_SIZE / ray.height) * pov->dtp;
+		// draw_line(game, ray, column);
 		column++;
 		ray.angle--;
 	}

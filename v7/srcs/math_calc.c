@@ -113,7 +113,7 @@ double	nearest_horizontal(t_game *game, int a)
 	p_const = horizontal_step(a);
 	while (!collide(game, intersection, a))
 		intersection = add_point(intersection, p_const);
-	printf("intersect: %d (game height: %d)\n", intersection.y, game->height);
+	printf("i.x i.y: %d (game height: %d) (game width: %d) CHECK x:%d y:%d\n", intersection.x, intersection.y, game->height, game->width, _map()->max_x, _map()->max_y);
 	if (intersection.x < 0 || intersection.y < 0 || intersection.x / TILE_SIZE
 		> game->width || intersection.y / TILE_SIZE > game->height)
 		return (INT_MAX);
