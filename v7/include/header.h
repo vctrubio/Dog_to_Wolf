@@ -27,7 +27,6 @@
 # define BUFFER_SIZE 1
 # define M_UNIT 10  //MAP_UNIT- change it if you want, will resize the game
 
-//*** HEADERS NEW PULGAMECANIC
 # define PI 3.14159265
 # define TILE_SIZE	64
 # define MAGNITUDE_ANGLE	3
@@ -135,7 +134,6 @@ typedef struct	s_game
 	t_window		*w;
 	t_img			*minimap;
 	t_img			*raycast;
-	// t_pov			*pov;
 	int				floor;
 	int				ceiling;
 	int				width;
@@ -154,6 +152,10 @@ typedef struct	s_game
         double          time;
         double          oldtime;
 }				t_game;
+
+
+int     handle_key_up(int key_code, void *pov);
+int     handle_key_down(int key_code, void *pov);
 
 //MATH
 int	r_angle(int angle);
@@ -217,7 +219,6 @@ void	ft_lstclear(t_list **lst);
 void	del(void *content);
 
 //static (AKA GLOBAL_fts)
-t_key		*_key(void);
 t_map		*_map(void);
 t_game		*_game(void);
 t_img		*_image(void);
@@ -245,8 +246,6 @@ void		my_map_loop(void);
 
 
 void		find_p_on_map(void);
-//movefreeFunction
-void		init_keys(void);
 
 void		ft_exit(void);
 

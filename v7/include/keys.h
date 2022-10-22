@@ -9,8 +9,8 @@
 # define K_D	2
 # define K_Q	12
 # define K_ESC	53
-# define K_R	15
-# define K_L	14 //i
+# define K_R	15 //!
+# define K_L	14 //!
 
 # define K_G	5
 
@@ -21,16 +21,5 @@
 # define MYGREEN 0x0000F900
 # define MYBLUE 0x00F90000
 # define MYWHITE 0x00F0F0F0
-
-typedef struct	s_key
-{
-	int	W;
-	int	S;
-	int	A;
-	int	D;
-	int	Q;
-	int	E;
-	int	ESC;
-}		t_key;
 
 #endif

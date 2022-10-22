@@ -7,7 +7,6 @@ int isBorder(char **map, int y, int x)
     int     height = _map()->max_y - 1;
     //NOTE- 1 and should test for empty lines after that
 
-    // printf("isBorder check len(%d) & HEIGHT(%d), [%d][%d]\n", len, height, y, x);
     if ((y == 0  || y == height) && map[y][x] == '0')
         return (1);
 
@@ -19,8 +18,6 @@ int isBorder(char **map, int y, int x)
         return (1);
     if (x < len && !map[y][x + 1])
         return (1);
-    // if (y > 0 && (!map[y - 1][x] || !map[y + 1][x] ||!map[y][x + 1] || !map[y][x - 1]))
-    //     return (1);
     return (0);
 }
 
@@ -44,7 +41,6 @@ int    pParse(char **map)
 		{
 			if (checkCord(map, i, j))
             {
-				// printf("CORD: %d, %d = SHOULD BE 0;\n", i, j);
 				if (isBorder(map, i, j))
                 {
 					printf("CHECKING CORD: %d, %d = SHOULD BE BORDER;\n", i, j);
@@ -55,6 +51,5 @@ int    pParse(char **map)
 			j++;
 		}
 	}
-	// printf("Pcomplete\n");
     return (1);
 }

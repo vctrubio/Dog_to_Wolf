@@ -7,9 +7,6 @@ static void	draw_line(t_game *game, t_ray ray, int col)
 	t_img	*tex;
 
 	tex = correct_texture(game, ray.color);
-	// we dont have correct text
-	//printf("width -%s-%d\n", tex->addr, tex->width);
-
 	i = -1;
 	if (ray.color == 1 || ray.color == 2)
 		x_texture_position = (int)(floor(ray.end.x + 1)) % TILE_SIZE;
@@ -20,10 +17,7 @@ static void	draw_line(t_game *game, t_ray ray, int col)
 		if (i >= _pov()->center - (ray.height / 2)
 			&& i <= _pov()->center + (ray.height / 2))
 		{
-//			printf("IMAGE_RAYCAST/DRAW_LINE %d\n\n", ray.height);
-
 			ray.color = texture_pixel_color(game, p(x_texture_position, (double)i), ray, tex); //BUG
-
 			ray.color = shade(ray.dist_wall, ray.color, game);
 			mpp(game->raycast, col, i, ray.color);
 		}
@@ -87,17 +81,13 @@ double	calc_dist(t_game *game, int ray_angle)
 	double	ph;
 	double	pv;
 
-	// printf("ANGEL-%d\n", _pov()->angle);
 	a = _pov()->angle + ray_angle;
-	printf("POV angle: %d\n", _pov()->angle + ray_angle);
 	if (a < 0)
 	    a = r_angle(360) + a;
 	if (a >= r_angle(360))
 	    a = a - r_angle(360);
 	ph = nearest_horizontal(game, a);
 	pv = nearest_vertical(game, a);
-	printf("H: [%f] V: [%f] - cos(%f) & sin(%f)\n", ph, pv, horizontal_step(a).x, vertical_step(a).y);
-
 	if (ph < pv)
 	    return (ph);
 	else
@@ -113,19 +103,9 @@ void	my_raycast(t_game *game)
 	pov = _pov();
 	ray.angle = r_angle(30);
 	column = 0;
-	
-    // printf("PRINT TEXT OF Wall|\n");
-    // t_texture *text = _texture();
-    // printf("%s---lll\n", text->north_texture);
-	// printf("ANGEL-%d\n", pov->angle);
-    
-
-	// printf("MAIN MAIN2 MAP MAX_Y = %d MAX_X %d\n\n", game->height, game->width);
-
 	while (ray.angle > -r_angle(30) && column < WWIDTH)
 	{
 		ray.dist_wall = calc_dist(game, ray.angle);
-		// printf("Distance: %d\n", ray.dist_wall);
 		ray.end = add_vec(pov->p,
 				vec((ray.angle + pov->angle), ray.dist_wall));
 		ray.color = set_wall_color(ray.dist_wall,

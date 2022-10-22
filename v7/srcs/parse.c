@@ -80,8 +80,6 @@ void	init_map(t_list *lst)
 		map->max_x = width;
 		printf("VALID MAP %d %d \n", _game()->height, _game()->width);
 	}
-	// printf("MAP MAX_Y = %d MAX_X \n\n", map->max_y, map->max_x);
-
 }
 
 void	parse_map(char *file)

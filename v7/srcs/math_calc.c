@@ -21,7 +21,6 @@ static int	wall_collide(t_game *game, t_point p, int angle)
 		my_x = ceil((p.x)) / (TILE_SIZE);
 	else
 		my_x = floor((p.x)) / (TILE_SIZE);
-	// printf("PRINTOKOKOKOKO: %d %d\n", my_y, my_x);
 	if (_map()->map[my_y][my_x] == '1')
 		return (1);
 	return (0);
@@ -54,7 +53,6 @@ t_point	horizontal_step(int a)
 
 	if (h_step[0].x > 0 || h_step[0].y > 0)
 		return (h_step[a]);
-	//printf("INITIALIZING!!!!!!!!!!!\n\n\n\n");
 	i = 0;
 	while (i < (int)r_angle(360))
 	{
@@ -69,7 +67,6 @@ t_point	horizontal_step(int a)
 		}
 		if (i > r_angle(90) && i < r_angle(270))
 			h_step[i].x *= -1;
-		//printf("COS(%d -> %d) point(%f, %f)\n", i / 6, i, h_step[i].x, h_step[i].y);
 		i++;
 	}
 	return (h_step[a]);
@@ -103,18 +100,14 @@ double	nearest_horizontal(t_game *game, int a)
 	t_point	intersection;
 	t_point	p_const;
 
-	// _pov()->p.y = 67.000;
-	printf("....%f\n", _pov()->p.y);
 	if (a < r_angle(180))
 		intersection.y = floor(_pov()->p.y / TILE_SIZE) * TILE_SIZE - 1;
 	else
 		intersection.y = floor(_pov()->p.y / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
-	
 	intersection.x = _pov()->p.x + (_pov()->p.y - intersection.y) / ftan(a);
 	p_const = horizontal_step(a);
 	while (!collide(game, intersection, a))
 		intersection = add_point(intersection, p_const);
-	printf("i.x i.y: %d (game height: %d) (game width: %d) CHECK x:%d y:%d\n", intersection.x, intersection.y, game->height, game->width, _map()->max_x, _map()->max_y);
 	if (intersection.x < 0 || intersection.y < 0 || intersection.x / TILE_SIZE
 		> game->width || intersection.y / TILE_SIZE > game->height)
 		return (INT_MAX);

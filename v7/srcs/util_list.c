@@ -7,11 +7,9 @@ int	ft_lstsize(t_list *lst)
 	index = 0;
 	while (lst)
 	{
-		// printf("%s--\n", (char*)lst->content);
 		lst = lst->next;
 		index++;
 	}
-	// printf("return %d\n", index);
 	return (index);
 }
 
@@ -86,7 +84,7 @@ void	ft_lstclear(t_list **lst)
 	t_list	*current;
 
 	current = *lst;
-		printf("############%s\n", (char*)current->content);
+	//printf("############%s\n", (char*)current->content);
 	while (current != NULL)
 	{
 		temp = current;

@@ -1,5 +1,4 @@
 #include "../include/header.h"
-//DONT think we need GNL ¿no?
 
 static int	elsa(int index, int fd, char **saved, char **line)
 {

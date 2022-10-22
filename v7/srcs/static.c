@@ -14,13 +14,6 @@ t_window	*_window(void)
 	return (&w);
 }
 
-t_key	*_key(void)
-{
-	static t_key	k;
-
-	return(&k);
-}
-
 t_map	*_map(void)
 {
 	static t_map	m;
@@ -36,7 +29,7 @@ t_texture	*_texture(void)
 	return (&t);
 }
 
-t_img	*_image()
+t_img	*_image() //leave but go/ destroy image
 {
 	static	t_img	img;
 

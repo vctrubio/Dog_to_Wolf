@@ -43,8 +43,6 @@ void	draw()
 	t_game	*game;
 
 	game = _game();
-	//my_map_loop();
-	//mlx_put_image_to_window(game->w->mlx, game->w->window, game->minimap->img, 0, 0); 
 	mlx_put_image_to_window(game->w->mlx, game->w->window, game->raycast->img, 0, 0); 
 }
 
