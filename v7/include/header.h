@@ -20,7 +20,7 @@
 # include <limits.h>
 
 # define WHEIGHT 800 //WINDOW_HEIGHT
-# define WWIDTH 360
+# define WWIDTH 500
 
 # define SDHEIGHT 42 //STANDARD_HEIGHT
 # define SDWIDTH 42

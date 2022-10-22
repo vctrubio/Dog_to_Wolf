@@ -21,7 +21,8 @@ static int	wall_collide(t_game *game, t_point p, int angle)
 		my_x = ceil((p.x)) / (TILE_SIZE);
 	else
 		my_x = floor((p.x)) / (TILE_SIZE);
-	if (game->map[my_y][my_x] == '1')
+	// printf("PRINTOKOKOKOKO: %d %d\n", my_y, my_x);
+	if (_map()->map[my_y][my_x] == '1')
 		return (1);
 	return (0);
 }

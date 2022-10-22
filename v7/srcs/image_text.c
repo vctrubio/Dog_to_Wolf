@@ -31,10 +31,10 @@ unsigned int	texture_pixel_color(t_game *game, t_point p, t_ray ray,
 	pixel_x = p.x / TILE_SIZE * texture->width;
 	//printf("IMAGE_TEXT/TEXTURE_PIXEL_COLOR1 %d %d %d\n", pixel_y, top, ray.height);
 	// printf("IMAGE_TEXT/TEXTURE_PIXEL_COLOR3 %d\n", ray.height);
-	// pixel_y = (p.y - top) / ray.height;
-	pixel_y = (p.y - top) ;
+	pixel_y = (p.y - top) / ray.height;
+	// pixel_y = (p.y - top) ;
 
 	pixel_y = pixel_y * texture->height;
-	// printf("YESSSSSS\n");
-	return (get_texture_color(texture, pixel_x, (int)pixel_y));
+	// printf("YESSSSSS %d %d ||%d\n", pixel_x, pixel_y, texture->height);
+	return (get_texture_color(texture, pixel_x, pixel_y));
 }

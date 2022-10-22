@@ -52,12 +52,9 @@ int	main()
 	game->w = rtn_window();
 	game->w->width = WWIDTH;
 	game->w->height = WHEIGHT;
-	game->height = 0;
-	game->width = 0;
 	game->w->window = mlx_new_window(game->w->mlx, WWIDTH, WHEIGHT, "Dog_to_Wolf");
 
 	parse_map("./maps/map.ber");
-	// printf("MAIN MAIN MAP MAX_Y = %d MAX_X \n\n", _map()->max_y, _map()->max_x);
 
 	init_game();
 	init_img_game(game);

@@ -120,17 +120,19 @@ void	my_raycast(t_game *game)
 	// printf("ANGEL-%d\n", pov->angle);
     
 
+	// printf("MAIN MAIN2 MAP MAX_Y = %d MAX_X %d\n\n", game->height, game->width);
+
 	while (ray.angle > -r_angle(30) && column < WWIDTH)
 	{
 		ray.dist_wall = calc_dist(game, ray.angle);
-		printf("Distance: %d\n", ray.dist_wall);
-		// ray.end = add_vec(pov->p,
-		// 		vec((ray.angle + pov->angle), ray.dist_wall));
-		// ray.color = set_wall_color(ray.dist_wall,
-		// 		pov->angle + ray.angle, game);
-		// ray.height = ray.dist_wall * fcos(abs(ray.angle));
-		// ray.height = ((double)TILE_SIZE / ray.height) * pov->dtp;
-		// draw_line(game, ray, column);
+		// printf("Distance: %d\n", ray.dist_wall);
+		ray.end = add_vec(pov->p,
+				vec((ray.angle + pov->angle), ray.dist_wall));
+		ray.color = set_wall_color(ray.dist_wall,
+				pov->angle + ray.angle, game);
+		ray.height = ray.dist_wall * fcos(abs(ray.angle));
+		ray.height = ((double)TILE_SIZE / ray.height) * pov->dtp;
+		draw_line(game, ray, column);
 		column++;
 		ray.angle--;
 	}
