@@ -12,8 +12,6 @@ t_img *new_image(t_window *win, int height, int width)
 	data->height = height;
 	data->img = mlx_new_image(win->mlx, width, height);
 	data->addr = mlx_get_data_addr(data->img, &(data->bbp), &(data->line_length), &(data->endian));
-
-	printf("blablabla %d %d %s\n", win->height, win->width, data->addr);
 	return (data);
 }
 

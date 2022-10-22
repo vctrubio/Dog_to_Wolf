@@ -15,7 +15,8 @@ void	fill_img_square(t_img *img, int cord_x, int cord_y, int color)
 	{
 		x = -1;
 		cord_x = i;
-		while (++x < M_UNIT) {
+		while (++x < M_UNIT)
+		{
 			printf("COLOR --> %d\n", color);
 			mpp(img, cord_x++, cord_y, color);
 		}

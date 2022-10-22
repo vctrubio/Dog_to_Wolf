@@ -19,7 +19,6 @@ static t_img	*new_texture_image(t_window *win, char *filename)
 
 void	init_walls(t_game *game, t_window *win)
 {
-	printf("ATUAMAE %d\n", win->height);
 	game->walls.east_img = new_texture_image(win, _texture()->east_texture);
 	game->walls.west_img = new_texture_image(win, _texture()->west_texture);
 	game->walls.north_img = new_texture_image(win, _texture()->north_texture);

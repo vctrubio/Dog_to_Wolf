@@ -1,5 +1,6 @@
 #include "../include/header.h"
 
+
 static void	draw_line(t_game *game, t_ray ray, int col)
 {
 	int		i;
@@ -22,9 +23,9 @@ static void	draw_line(t_game *game, t_ray ray, int col)
 			mpp(game->raycast, col, i, ray.color);
 		}
 		else if (i < _pov()->center)
-			mpp(game->raycast, col, i, game->ceiling);
+			mpp(game->raycast, col, i, atoi(_texture()->cealing));
 		else
-			mpp(game->raycast, col, i, game->floor);
+			mpp(game->raycast, col, i, atoi(_texture()->floor));
 	}
 }
 

@@ -116,9 +116,7 @@ typedef struct	s_img
 typedef struct	s_texture
 {
 	char	*floor;
-	t_img	*floor_img;
 	char	*cealing;
-	t_img	*cealing_img;
 	char	*north_texture;
 	t_img	*north_img;
 	char	*south_texture;
@@ -134,8 +132,6 @@ typedef struct	s_game
 	t_window		*w;
 	t_img			*minimap;
 	t_img			*raycast;
-	int				floor;
-	int				ceiling;
 	int				width;
 	int				height;
 	char			**map;

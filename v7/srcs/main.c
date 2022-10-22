@@ -8,15 +8,7 @@ int	gameloop(t_pov *pov)
 	static int	fps = 0;
 	t_game		*game = _game();
 
-	if (pov->w_down || pov->n_down || pov->s_down || pov->e_down)
-	{
-		printf("%c", pov->w_down ? '<' : ' ');
-		printf("%c", pov->n_down ? 'N' : ' ');
-		printf("%c", pov->s_down ? 'v' : ' ');
-		printf("%c", pov->e_down ? '>' : ' ');
-		printf("\n");
-	}
-	if (fps++ == 5) {
+	if (fps++ == 6) {
 		if (pov->n_down)
 			move(K_W, pov);
 		else if (pov->s_down)
