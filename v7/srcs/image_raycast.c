@@ -23,11 +23,13 @@ static void	draw_line(t_game *game, t_ray ray, int col)
 			mpp(game->raycast, col, i, ray.color);
 		}
 		else if (i < _pov()->center)
-			mpp(game->raycast, col, i, atoi(_texture()->cealing));
+			mpp(game->raycast, col, i, convert_color(_texture()->cealing));
 		else
-			mpp(game->raycast, col, i, atoi(_texture()->floor));
+			mpp(game->raycast, col, i, convert_color(_texture()->floor));
 	}
 }
+
+
 
 int	set_wall_color(double dist, int angle, t_game *game)
 {

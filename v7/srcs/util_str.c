@@ -1,5 +1,82 @@
 #include "../include/header.h"
 
+static int	count(char const *s, char c)
+{
+	unsigned int	index;
+	unsigned int	count;
+
+	index = 0;
+	count = 0;
+	while (s[index])
+	{
+		while (s[index] == c)
+			index++;
+		if (s[index] != '\0')
+			count++;
+		while (s[index] && s[index] != c)
+			index++;
+	}
+	return (count);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	unsigned int	index;
+	unsigned int	index_a;
+	unsigned int	index_tab;
+	char			**tab;
+
+	index_a = 0;
+	index_tab = 0;
+	if (!s)
+		return (NULL);
+	tab = (char **)malloc(sizeof(char *) * (count(s, c) + 1));
+	if (!(tab))
+		return (NULL);
+	tab[count(s, c)] = 0;
+	while (*s && *s == c)
+		s++;
+	while (s[index_a])
+	{
+		index = index_a;
+		while (s[index_a] && s[index_a] != c)
+			index_a++;
+		tab[index_tab++] = ft_substr(s, index, index_a - index);
+		while (s[index_a] && s[index_a] == c)
+			index_a++;
+	}
+	return (tab);
+}
+
+int	ft_atoi(const char *str)
+{
+	long long		res;
+	int				sign;
+	unsigned int	index;
+
+	res = 0;
+	sign = 1;
+	index = 0;
+	while (str[index] && ((str[index] >= 9 && str[index] <= 13)
+			|| (str[index] == 32)))
+		index++;
+	if (str[index] == '-')
+	{
+		if (str[index + 1] == '-' || str[index + 1] == '+')
+			return (0);
+		sign = -1;
+		index++;
+	}
+	if (str[index] == '+')
+		index++;
+	while (str[index] >= '0' && str[index] <= '9')
+	{
+		res = res * 10 + str[index] - '0';
+		index++;
+	}
+	return ((int)(res * sign));
+}
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	index;

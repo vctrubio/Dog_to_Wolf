@@ -9,8 +9,8 @@
 # define K_D	100
 # define K_Q	113
 # define K_ESC	65307
-# define K_R	114
-# define K_L	115 //i
+# define K_R	65363
+# define K_L	65361 
 # define K_G	103
 
 # define MYRED 0x00FF0011

@@ -5,6 +5,7 @@ static void	keys_update(int key_code, void *_pov, int press)
 {
 	t_pov	*pov;
 
+	printf("KEYCODE %d\n", key_code);
 	pov = _pov;
 	if (key_code == K_ESC)
 		freeFunction();

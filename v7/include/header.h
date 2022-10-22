@@ -20,7 +20,7 @@
 # include <limits.h>
 
 # define WHEIGHT 800 //WINDOW_HEIGHT
-# define WWIDTH 500
+# define WWIDTH 800
 
 # define SDHEIGHT 42 //STANDARD_HEIGHT
 # define SDWIDTH 42
@@ -115,6 +115,8 @@ typedef struct	s_img
 
 typedef struct	s_texture
 {
+	int		floor_value;
+	int		cealing_value;
 	char	*floor;
 	char	*cealing;
 	char	*north_texture;
@@ -150,6 +152,7 @@ typedef struct	s_game
 }				t_game;
 
 
+int		convert_color(char *str);
 int     handle_key_up(int key_code, void *pov);
 int     handle_key_down(int key_code, void *pov);
 
@@ -245,6 +248,7 @@ void		find_p_on_map(void);
 
 void		ft_exit(void);
 
+int		ft_atoi(const char *str);
 //utilCalloc (EXTRAS/MYLIBFT)
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t n, size_t size);
@@ -256,11 +260,12 @@ t_list	*ft_lstnew(void *content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 //utilStr
-int		my_strnstr(char *str, int type);
 int		ft_isdigit(int c);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s);
+int		my_strnstr(char *str, int type);
 char	*ft_strchr(const char *s, int c);
+char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

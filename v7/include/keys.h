@@ -9,8 +9,8 @@
 # define K_D	2
 # define K_Q	12
 # define K_ESC	53
-# define K_R	15 //!
-# define K_L	14 //!
+# define K_R	124 //!
+# define K_L	123 //!
 
 # define K_G	5
 

@@ -1,5 +1,18 @@
 #include "../include/header.h"
 
+int		convert_color(char *str)
+{
+	char	**color;
+	int		c_number[3];
+
+	color = ft_split(str, ',');
+	c_number[0] = get_r(ft_atoi(color[0]));
+	c_number[1] = get_g(ft_atoi(color[1]));
+	c_number[2] = get_b(ft_atoi(color[2]));
+	free(color);
+	return (gen_trgb(255, c_number[0], c_number[1], c_number[2]));
+}
+
 void	texture_path(t_texture *texture, char *str, int data)
 {
 	if (data == 1)
