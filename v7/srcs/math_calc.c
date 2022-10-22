@@ -102,6 +102,7 @@ double	nearest_horizontal(t_game *game, int a)
 	t_point	intersection;
 	t_point	p_const;
 
+	// _pov()->p.y = 67.000;
 	printf("....%f\n", _pov()->p.y);
 	if (a < r_angle(180))
 		intersection.y = floor(_pov()->p.y / TILE_SIZE) * TILE_SIZE - 1;
@@ -112,6 +113,7 @@ double	nearest_horizontal(t_game *game, int a)
 	p_const = horizontal_step(a);
 	while (!collide(game, intersection, a))
 		intersection = add_point(intersection, p_const);
+	printf("intersect: %d (game height: %d)\n", intersection.y, game->height);
 	if (intersection.x < 0 || intersection.y < 0 || intersection.x / TILE_SIZE
 		> game->width || intersection.y / TILE_SIZE > game->height)
 		return (INT_MAX);
