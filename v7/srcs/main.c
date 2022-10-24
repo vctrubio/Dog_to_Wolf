@@ -1,10 +1,10 @@
 #include "../include/header.h"
 
-t_game	*_game(void)
+t_pov	*_pov()
 {
-	static t_game game;
+	static t_pov	pov;
 
-	return (&game);
+	return (&pov);
 }
 
 int	gameloop(t_pov *pov) 
@@ -33,6 +33,8 @@ static void	rtn_window(t_game *game)
 	t_window	*window;
 
 	window = malloc(sizeof(t_window));
+	if (window == NULL)
+		ft_exit("Could not load MLX window");
 	window->mlx = mlx_init();
 	game->w = window;
 	game->w->width = WWIDTH;
@@ -58,4 +60,3 @@ int	main(int ac, char **ag)
 	mlx_loop(game->w->mlx);
 	return (0);
 }
-

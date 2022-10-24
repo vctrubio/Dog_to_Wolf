@@ -10,8 +10,12 @@ static t_img	*new_texture_image(t_window *win, char *filename)
 	data->w = win;
 	data->img = mlx_xpm_file_to_image(win->mlx, filename, &data->width, &data->height);
 	if (!data->img)
-		printf("Error: Could not load image from xpm file\n"); // ft_EXIT(??)
-
+	{
+		free(data);
+		printf("filename %s ", filename);
+		ft_exit("Could not load image from xpm file");
+		//NEED TO CHECK THIS WORKS
+	}
 	data->addr = mlx_get_data_addr(data->img, &data->bbp, &data->line_length, &data->endian);
 	return (data);
 }
