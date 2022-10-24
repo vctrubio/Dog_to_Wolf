@@ -224,8 +224,6 @@ t_img		*_image(void);
 t_window	*_window(void);
 t_pov		*_pov();
 t_texture	*_texture(void);
-//staticRTN
-t_window	*rtn_window(void);
 int			map_divide(t_list *lst);
 void		map_data_lvl2(t_texture *texture, char *str);
 //parse (PROGRAM)
@@ -246,7 +244,7 @@ void		my_map_loop(void);
 
 void		find_p_on_map(void);
 
-void		ft_exit(void);
+void		ft_exit(char *msg);
 
 int		ft_atoi(const char *str);
 //utilCalloc (EXTRAS/MYLIBFT)
@@ -278,8 +276,6 @@ void	print_map(void);
 int		unit_nb(int x);
 //XTRA
 void	move_player(int y, int x);
-t_img	*rtn_img(int x, int y);
-void	key_listener(void);
 void	update_map_pos(int x, int y);
 
 //pase_map

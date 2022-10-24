@@ -29,8 +29,6 @@ static void	draw_line(t_game *game, t_ray ray, int col)
 	}
 }
 
-
-
 int	set_wall_color(double dist, int angle, t_game *game)
 {
 	if (angle < 0)
@@ -52,7 +50,6 @@ int	set_wall_color(double dist, int angle, t_game *game)
 			return (4);
 	}
 }
-
 
 t_vector	vec(int angle, double mag)
 {

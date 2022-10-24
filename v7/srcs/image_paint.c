@@ -14,4 +14,3 @@ void    paint_window(void)
 	my_raycast(game);
 	mlx_put_image_to_window(game->raycast->w->mlx, game->raycast->w->window, raycast->img, 0, 0);
 }
-

@@ -1,7 +1,4 @@
 #include "../include/header.h"
-/* V7
-Raycast inpiration from PulgaMecanic the real Mecanic
-*/
 
 int	gameloop(t_pov *pov) 
 {
@@ -24,19 +21,28 @@ int	gameloop(t_pov *pov)
 	return (0);
 }
 
-
-
-
-int	main()
+static void	rtn_window(t_game *game)
 {
-	t_game		*game;
+	t_window	*window;
 
-	game = _game();
-	game->w = rtn_window();
+	window = malloc(sizeof(t_window));
+	window->mlx = mlx_init();
+	game->w = window;
 	game->w->width = WWIDTH;
 	game->w->height = WHEIGHT;
 	game->w->window = mlx_new_window(game->w->mlx, WWIDTH, WHEIGHT, "Dog_to_Wolf");
-	parse_map("./maps/map.ber");
+}
+
+int	main(int ac, char **ag)
+{
+	t_game		*game;
+
+	if (ac == 2)
+		parse_map(ag[1]);
+	else
+		ft_exit("Please provide a path/map.ber");
+	game = _game();
+	rtn_window(game);
 	init_game();
 	init_img_game(game);
     mlx_hook(game->w->window, 3, 1L<<1, handle_key_up, _pov());

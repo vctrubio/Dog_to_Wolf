@@ -12,7 +12,6 @@ static void	choose_angle(t_game *game, char c)
 		_pov()->angle = r_angle(180);
 }
 
-
 void    init_game(void)
 {
     t_game  *game;

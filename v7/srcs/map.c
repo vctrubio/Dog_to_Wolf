@@ -1,6 +1,5 @@
 #include "../include/header.h"
 
-//N,S,E and W will define the start direction
 void	find_p_on_map(void) 
 {
 	t_map	*map;
