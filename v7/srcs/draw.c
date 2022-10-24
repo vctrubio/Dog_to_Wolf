@@ -1,5 +1,10 @@
 #include "../include/header.h"
 
+int		unit_nb(int x)
+{
+		return (x * M_UNIT);
+}
+
 void	fill_img_square(t_img *img, int cord_x, int cord_y, int color)
 {
 	int	x;

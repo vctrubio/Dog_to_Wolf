@@ -44,8 +44,5 @@ void	map_data_lvl2(t_texture *texture, char *str)
 	else if (!ft_strncmp("C", str, 1) && texture->cealing == NULL)
 		texture_path(texture, str, 6);
 	else
-	{
-		printf("ERROR: Duplicate texture\n");
-		exit(1);
-	}
+		ft_exit("Duplicate texture");
 }

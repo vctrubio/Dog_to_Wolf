@@ -4,7 +4,6 @@ void	mpp(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 
-	
 	if (x > img->width)
 		return ;
 	if (y > img->height)

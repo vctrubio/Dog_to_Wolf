@@ -20,10 +20,7 @@ int 	map_data_lvl1(t_texture *texture, char *str)
 		return (data_checker(texture));
 	}
 	else
-	{
-		printf("ERROR: Wrong argument\n");
-		exit(1);
-	}
+		ft_exit("Wrong argument");
 }
 
 int		map_data(char *str)
@@ -55,10 +52,7 @@ int		map_begin(char *str)
 	while (str[i] == ' ')
 		i++;
 	if (!ft_isdigit(str[i]))
-	{
-		printf("ERROR: Wrong format\n");
-		exit(1);
-	}
+		ft_exit("Wrong Map format")
 	return (99);
 }
 

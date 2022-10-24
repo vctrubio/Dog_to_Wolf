@@ -29,7 +29,7 @@ t_texture	*_texture(void)
 	return (&t);
 }
 
-t_img	*_image() //leave but go/ destroy image
+t_img	*_image()
 {
 	static	t_img	img;
 

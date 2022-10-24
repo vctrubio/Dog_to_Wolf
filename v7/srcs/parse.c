@@ -1,5 +1,7 @@
 #include "../include/header.h"
 
+//THIS file needs most cleaning. shit can go in ft_exit
+
 void	destroyImage()
 {
 	t_window	*window;
@@ -10,7 +12,7 @@ void	destroyImage()
 	//free(window->window);
 }
 
-void	freeFunction() //bool destroy
+void	freeFunction() //bool destroy //THIS NEED TO GO INTO FT_EXIT
 {
 	int		i;
 	t_map	*map;
@@ -78,7 +80,7 @@ void	init_map(t_list *lst)
 		_game()->height = height;
 		_game()->width = width;
 		map->max_x = width;
-		printf("VALID MAP %d %d \n", _game()->height, _game()->width);
+		printf("Valid map initialized: Height: %d Width: %d !GL\n", _game()->height, _game()->width);
 	}
 }
 
@@ -91,10 +93,7 @@ void	parse_map(char *file)
 	lst = NULL;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-	{
-		printf("no map found\n");
-		exit(1);
-	}
+		ft_exit("no map found");
 	while (get_next_line(fd, &line)) {
 		ft_lstadd_back(&lst, ft_lstnew((void *)ft_strdup(line)));
 		free(line);

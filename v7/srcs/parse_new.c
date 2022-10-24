@@ -45,9 +45,8 @@ int    pParse(char **map)
             {
 				if (isBorder(map, i, j))
                 {
-					printf("CHECKING CORD: %d, %d = SHOULD BE BORDER;\n", i, j);
-                   _map()->valid = false;
-                   exit(1);
+					printf("CORD: %d, %d = SHOULD BE BORDER;\n", i, j);
+                    ft_exit("check map");
                 }
             }
 			j++;

@@ -4,7 +4,6 @@ OBJS = $(SRCS:.c=.o)
 RM = rm -f
 UNAME = $(shell uname)
 
-
 ifeq ($(UNAME), Darwin)
 all: 
 	gcc $(SRCS) lmlx/libmlx.a -framework OpenGL -framework AppKit -o $(name)
@@ -19,6 +18,7 @@ run: all
 clean:
 	$(RM) $(OBJS) $(NAME)
 
+fclean:
+	#echo "how Fclean"
+
 re: clean all
-#MAKE SURE TO make inside libft
-#YES- it needs imporvement
