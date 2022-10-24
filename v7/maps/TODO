@@ -13,3 +13,6 @@ passing an arguemnt/ argument checker == 2
 -ft_atoi
 -different wall textures
 -if no new line of the end of map, return ERROR and exit
+
+---- 
+ParseMap needs work
