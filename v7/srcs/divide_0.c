@@ -21,6 +21,7 @@ int 	map_data_lvl1(t_texture *texture, char *str)
 	}
 	else
 		ft_exit("Wrong argument");
+	return (1);
 }
 
 int		map_data(char *str)
@@ -52,7 +53,7 @@ int		map_begin(char *str)
 	while (str[i] == ' ')
 		i++;
 	if (!ft_isdigit(str[i]))
-		ft_exit("Wrong Map format")
+		ft_exit("Wrong Map format");
 	return (99);
 }
 
