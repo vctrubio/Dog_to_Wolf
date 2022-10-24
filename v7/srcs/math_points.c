@@ -1,10 +1,5 @@
 #include "../include/header.h"
 
-int	collide(t_game *game, t_point p, int angle)
-{	
-	return (edge_collide(game, p) || wall_collide(game, p, angle));
-}
-
 t_point	p(double x, double y)
 {
 	t_point	p;
