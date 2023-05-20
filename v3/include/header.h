@@ -60,11 +60,17 @@ typedef struct	s_game
 	double		pos_y;
 }				t_game;
 
+typedef struct	s_info
+{
+	int			count;
+}				t_info;
+
 //static AKA GLOBAL_fts
 t_game		*_game(void);
 t_window	*_window(void);
 t_key		*_key(void);
 t_map		*_map(void);
+t_info		*_info(void);
 //staticRTN
 t_window	*rtn_window(void);
 t_game		*rtn_game(void);

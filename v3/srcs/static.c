@@ -27,3 +27,10 @@ t_map	*_map(void)
 
 	return (&m);
 }
+
+t_info	*_info(void)
+{
+	static t_info	i;
+
+	return (&i);
+}

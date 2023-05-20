@@ -52,7 +52,10 @@ void	my_map_init(void)
 				update_map_pos(x, y);
 			}
 			else if (map->map[y][x] == '2')
+			{
+				_info()->count += 1;
 				fill_img_square(img, x, y, MYREDISH);
+			}
 		}
 		// printf("\n");
 	}
